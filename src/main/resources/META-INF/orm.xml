@@ -9,46 +9,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 
-	<mapped-superclass class="model.Personne">
-		<attributes>
-			<id name="id">
-				<generated-value strategy="IDENTITY" />
-			</id>
-			<basic name="nom"></basic>
-			<basic name="prenom"></basic>
-			<basic name="adresse"></basic>
-			<basic name="codePostal"></basic>
-			<basic name="ville" />
-			<basic name="telephone" />
-		</attributes>
-	</mapped-superclass>
 
-	<mapped-superclass class="model.Compte">
-		<attributes>
-			<id name="id">
-				<generated-value strategy="IDENTITY" />
-			</id>
-			<basic name="solde" />
-			<basic name="dateOuverture" />
-
-		</attributes>
-	</mapped-superclass>
 
 	<entity class="model.Conseiller">
 		<table name="conseillers" />
 		<attributes>
+			<id name="id">
+				<column name="idConseillerClientele" />
+				<generated-value strategy="IDENTITY"/>
+			</id>
 			<basic name="login" />
 			<basic name="password" />
 			<one-to-many name="clients" mapped-by="conseiller">
 			</one-to-many>
 		</attributes>
-
 	</entity>
 
 
 	<entity class="model.Client">
 		<table name="clients" />
 		<attributes>
+			<id name="id">
+				<column name="idClient" />
+				<generated-value strategy="IDENTITY"/>
+			</id>
 			<basic name="typeClient" />
 			<many-to-one name="conseiller">
 				<join-column name="idConseiller"
@@ -66,16 +50,24 @@
 	</entity>
 
 
-	<entity class="model.CompteCourant">
+<!-- 	<entity class="model.CompteCourant"> -->
 <!-- 		<attributes> -->
+<!-- 			<id name="id"> -->
+<!-- 				<column name="idCompteCourant" /> -->
+<!-- 				<generated-value strategy="IDENTITY"/> -->
+<!-- 			</id> -->
 <!-- 			<basic name="decouvert" /> -->
 <!-- 		</attributes> -->
-	</entity>
+<!-- 	</entity> -->
 
-	<entity class="model.CompteEpargne">
+<!-- 	<entity class="model.CompteEpargne"> -->
 <!-- 		<attributes> -->
+<!-- 			<id name="id"> -->
+<!-- 				<column name="idCompteEpargne" /> -->
+<!-- 				<generated-value strategy="IDENTITY"/> -->
+<!-- 			</id> -->
 <!-- 			<basic name="taux" /> -->
 <!-- 		</attributes> -->
-	</entity>
+<!-- 	</entity> -->
 
 </entity-mappings>

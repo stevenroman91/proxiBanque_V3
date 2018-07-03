@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public abstract class Compte implements Entity, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id ; 
 	private double solde ; 
 	private String dateOuverture ;
