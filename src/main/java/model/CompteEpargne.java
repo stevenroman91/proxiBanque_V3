@@ -17,6 +17,14 @@ public class CompteEpargne extends Compte {
 
 	public void setTaux(double taux) {
 		this.taux = taux;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	} 
 	
 	

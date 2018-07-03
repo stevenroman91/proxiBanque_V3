@@ -16,6 +16,14 @@ public class CompteCourant extends Compte {
 
 	public void setDecouvert(double decouvert) {
 		this.decouvert = decouvert;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	} 
 	
 	

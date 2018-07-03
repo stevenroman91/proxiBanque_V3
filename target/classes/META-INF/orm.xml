@@ -39,7 +39,7 @@
 		<attributes>
 			<basic name="login" />
 			<basic name="password" />
-			<one-to-many name="clients" mapped-by="conseillers">
+			<one-to-many name="clients" mapped-by="conseiller">
 			</one-to-many>
 		</attributes>
 
@@ -51,9 +51,17 @@
 		<attributes>
 			<basic name="typeClient" />
 			<many-to-one name="conseiller">
-				<join-column name="conseillers"
-					referenced-column-name="idConseiller" />
+				<join-column name="idConseiller"
+					referenced-column-name="id" />
 			</many-to-one>
+			<one-to-one name="cc">
+				<join-column name="idCompteCourant"
+					referenced-column-name="id" />
+			</one-to-one>
+			<one-to-one name="ce">
+				<join-column name="idCompteEpargne"
+					referenced-column-name="id" />
+			</one-to-one>
 		</attributes>
 	</entity>
 
@@ -61,18 +69,14 @@
 	<entity class="model.CompteCourant">
 		<attributes>
 			<basic name="decouvert" />
-			<many-to-one name="Client">
-			  <join-column name="client" referenced-column-name="idClient"></join-column>
-			</many-to-one>
+			<one-to-one name="client" mapped-by="cc" />
 		</attributes>
 	</entity>
 
 	<entity class="model.CompteEpargne">
 		<attributes>
 			<basic name="taux" />
-			<many-to-one name="Client">
-			  <join-column name="client" referenced-column-name="idClient"></join-column>
-			</many-to-one>
+			<one-to-one name="client" mapped-by="ce" />
 		</attributes>
 
 	</entity>
