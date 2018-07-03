@@ -67,18 +67,15 @@
 
 
 	<entity class="model.CompteCourant">
-		<attributes>
-			<basic name="decouvert" />
-			<one-to-one name="client" mapped-by="cc" />
-		</attributes>
+<!-- 		<attributes> -->
+<!-- 			<basic name="decouvert" /> -->
+<!-- 		</attributes> -->
 	</entity>
 
 	<entity class="model.CompteEpargne">
-		<attributes>
-			<basic name="taux" />
-			<one-to-one name="client" mapped-by="ce" />
-		</attributes>
-
+<!-- 		<attributes> -->
+<!-- 			<basic name="taux" /> -->
+<!-- 		</attributes> -->
 	</entity>
 
 </entity-mappings>
