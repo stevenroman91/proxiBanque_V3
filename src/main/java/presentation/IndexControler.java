@@ -41,15 +41,19 @@ public class IndexControler {
 	}
 	
 	@PostMapping({"/login", "/loginIncorrect"})
-	public String loggin (@RequestParam("login") String username, @RequestParam("pwd") String password ) {
-		String path = "redirect:/loginIncorrect.html" ;
+	public ModelAndView loggin (@RequestParam("login") String username, @RequestParam("pwd") String password ) {
+		ModelAndView path = null;
 		List <Conseiller> conseillers = conseillerService.getList() ;
 		
 		for (Conseiller conseiller : conseillers) {
 			if  ( (conseiller.getLogin().equals(username)) && (conseiller.getPassword().equals(password)) ) {
-				path = "redirect:/index.html";
+				path = new ModelAndView("index");
+				path.addObject("listeClient", conseiller.getClients());
+				
 			}
 		}
+		if (path == null)
+			path = new ModelAndView("loginIncorrect") ; 
 		return path ; 
 	}
 	

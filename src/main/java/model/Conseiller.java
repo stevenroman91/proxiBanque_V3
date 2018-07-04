@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Conseiller implements Entity,Serializable {
@@ -21,7 +21,7 @@ public class Conseiller implements Entity,Serializable {
 	private String telephone;
 	private String login ;
 	private String password ;
-	private List <Client> clients  ;
+	private List <Client> clients = new ArrayList<>()  ;
 	
 	/**
 	 * @return the id
