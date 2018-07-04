@@ -15,7 +15,7 @@ public abstract class CrudService<ENTITY extends Entity> {
 	protected JpaRepository<ENTITY, Integer> repo;
 
 	
-	protected ENTITY save(ENTITY entity) {
+	public ENTITY save(ENTITY entity) {
 		return this.repo.save(entity);
 	}
 

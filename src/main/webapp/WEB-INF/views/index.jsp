@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ProxyBanque</title>
-<link rel="stylesheet" href="<c:url value = "/css/bootstrap.min.css"></c:url>">
+<link rel="stylesheet"
+	href="<c:url value = "/css/bootstrap.min.css"></c:url>">
 <link rel="stylesheet" href="<c:url value = "/css/style.css"></c:url>">
 <script src="<c:url value = "/js/bootstrap.min.js"></c:url>"></script>
 </head>
@@ -16,29 +17,26 @@
 
 	<nav class="navbar navbar-inverse navbar-static-top">
 
-	<div class="container-fluid">
+		<div class="container-fluid">
 
-		<ul class="nav navbar-left">
+			<ul class="nav navbar-left">
 
-			<li role="presentation"><a href="clientsoperations.jsp"><span
+				<li role="presentation"><a href="clientsoperations.jsp"><span
+						class="glyphicon glyphicon-home" aria-hidden="true"></span>
+						Accueil ProxiBanque</a></li>
 
-					class="glyphicon glyphicon-home" aria-hidden="true"></span> Accueil
+			</ul>
 
-					ProxiBanque</a></li>
+			<ul class="nav navbar-right">
 
-		</ul>
+				<li role="presentation"><a href="LogOutServlet"><span
+						class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
 
-		<ul class="nav navbar-right">
+						Deconnexion</a></li>
 
-			<li role="presentation"><a href="LogOutServlet"><span
+			</ul>
 
-					class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-
-					Deconnexion</a></li>
-
-		</ul>
-
-	</div>
+		</div>
 
 	</nav>
 
@@ -46,121 +44,133 @@
 
 	<div id="banner">
 
-		
 
-	</tbody>
 
-	
+		</tbody>
 
-		<h2>Application ProxiBanque </h2>
+
+
+		<h2>Application ProxiBanque</h2>
 
 		<p>Bienvenue dans votre espace ProxiBanque</p>
 
 		<br>
 
-	
 
-	<!-- Liste des clients du conseiller -->
 
- 	<div class="panel panel-default">
+		<!-- Liste des clients du conseiller -->
 
- 		<div class="panel-heading">Liste des clients </div>
+		<div class="panel panel-default">
 
- 		<table class="table">
+			<div class="panel-heading">Liste des clients</div>
 
-		  <thead>
+			<table class="table">
 
-		    <tr>
+				<thead>
 
-		      <th>ID</th>
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Adresse</th>
+						<th>code Postal</th>
+						<th>Ville</th>
+						<th>Type Client</th>
+						<th>Telephone</th>
 
-		      <th>Nom</th>
 
-		      <th>Prénom</th>
 
-		      <th>Mail</th>
+					</tr>
 
-		    </tr>
+				</thead>
 
-		  </thead>
+				<tbody>
 
-		  <tbody>
+					<c:forEach var="client" items="${listeClient}">
+						<tr>
+							<td scope="row"><c:out value="${client.id}" /></td>
 
-		 	<c:forEach var="client" items="${listeClient}">
-				<tr>
-					<td scope="row"><c:out value="${client.idPersonne}"/></td>
+							<td><c:out value="${client.nom}" /></td>
 
-		     	 	<td><c:out value="${client.nom}"/></td>
+							<td><c:out value="${client.prenom}" /></td>
+							<td><c:out value="${client.adresse}" /></td>
+							<td><c:out value="${client.codePostal}" /></td>
+							<td><c:out value="${client.ville}" /></td>
+							<td><c:out value="${client.typeClient}" /></td>
+							<td><c:out value="${client.telephone}" /></td>
 
-		      		<td><c:out value="${client.prenom}"/></td>
 
-		      		<td><c:out value="${client.email}"/></td>
 
-				</tr>
-
-			</c:forEach>
-
-		  </tbody>
-
-		</table>
-
-	</div>
-
-	<c:url value="/" var="chemin" />
-
-	<br>
-
-		<form action="${chemin}modifier" method="post" class="form-inline form-group container">
-
-   				<label for="idClient">ID Client </label>
-
-   				<select class="form-control" name="idClient" id="idClient">
-
-			    	<c:forEach var="client" items="${listeClient}">
-
-							<option value="${client.idPersonne}"><c:out value="${client.idPersonne}"/></option>
+						</tr>
 
 					</c:forEach>
 
-			    </select>
+				</tbody>
 
-				<button name="but" type="submit" class="btn btn-success"> Modifier profil Client  </button>
+			</table>
 
- 		</form>
+		</div>
 
- 		
+		<c:url value="/" var="chemin" />
 
- 		<br>
+		<br>
+
+		<form action="${chemin}modifier.html" method="get"
+			class="form-inline form-group container">
+
+			<label for="idClient">ID Client </label> 
+			<select class="form-control"
+				name="idClient" id="idClient">
+
+				<c:forEach var="client" items="${listeClient}">
+
+					<option value="${client.id}"><c:out value="${client.id}" /></option>
+
+				</c:forEach>
+
+			</select>
+
+			<button name="but" type="submit" class="btn btn-success">
+				Modifier profil Client</button>
+
+		</form>
 
 
 
-		<form action="${chemin}consulter" method="post" class="form-inline form-group container">
+		<br>
 
-   				<label for="idClient2">ID Client </label>
 
-   				<select class="form-control" name="idClient" id="idClient2">
 
-			    	<c:forEach var="client" items="${listeClient}">
+		<form action="${chemin}consulter" method="post"
+			class="form-inline form-group container">
 
-							<option value="${client.idPersonne}"><c:out value="${client.idPersonne}"/></option>
+			<label for="idClient2">ID Client </label> <select
+				class="form-control" name="idClient" id="idClient2">
 
-					</c:forEach>
+				<c:forEach var="client" items="${listeClient}">
 
-			    </select>
+					<option value="${client.id}"><c:out value="${client.id}" /></option>
 
-				<button type="submit" class="btn btn-success">Consulter Compte</button>
+				</c:forEach>
 
- 		</form>
+			</select>
 
- 		
+			<button type="submit" class="btn btn-success">Consulter
+				Compte</button>
 
- 		<br>
+		</form>
 
-		<form action="${chemin}virement" method="get" class="form-inline form-group container">
 
-				<button type="submit" class="btn btn-success">Effectuer Virement</button>
 
- 		</form>
+		<br>
+
+		<form action="${chemin}virement" method="get"
+			class="form-inline form-group container">
+
+			<button type="submit" class="btn btn-success">Effectuer
+				Virement</button>
+
+		</form>
 
 
 
@@ -176,9 +186,8 @@
 
 			<h2>Gestion clientèle</h2>
 
-			<p>L'application ProxiBanque vous offre un outil de gestion
-
-				pour répondre aux besoins de vos clients.</p>
+			<p>L'application ProxiBanque vous offre un outil de gestion pour
+				répondre aux besoins de vos clients.</p>
 
 			<br>
 
@@ -188,9 +197,7 @@
 
 			<span class="glyphicon glyphicon-refresh"></span>
 
-			<p>Vous permet de mettre à jour les
-
-				informations clients.</p>
+			<p>Vous permet de mettre à jour les informations clients.</p>
 
 		</div>
 
@@ -198,9 +205,8 @@
 
 			<span class="glyphicon glyphicon-folder-open"></span>
 
-			<p>Vous permet de consulter les comptes
-
-				Courants et Epargnes de vos clients.</p>
+			<p>Vous permet de consulter les comptes Courants et Epargnes de
+				vos clients.</p>
 
 		</div>
 
@@ -208,9 +214,8 @@
 
 			<span class="glyphicon glyphicon-euro"></span>
 
-			<p>Vous permet d'effectuer pour vos
-
-				clients des virements de compte à compte.</p>
+			<p>Vous permet d'effectuer pour vos clients des virements de
+				compte à compte.</p>
 
 		</div>
 
