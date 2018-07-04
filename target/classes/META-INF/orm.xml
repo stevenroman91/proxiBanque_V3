@@ -48,6 +48,12 @@
 			<basic name="ville" />
 			<basic name="telephone" />
 			<basic name="typeClient" />
+			
+			
+			<many-to-one name="conseiller">
+				<join-column name="idConseiller"
+					referenced-column-name="id" />
+			</many-to-one>
 
 			<one-to-one name="cc">
 				<join-column name="idCC" referenced-column-name="id"></join-column>
@@ -57,10 +63,6 @@
 				<join-column name="idCE" referenced-column-name="id"></join-column>
 			</one-to-one>
 
-			<many-to-one name="conseiller">
-				<join-column name="idConseiller"
-					referenced-column-name="id" />
-			</many-to-one>
 
 
 		</attributes>
@@ -75,10 +77,8 @@
 			<basic name="solde" />
 			<basic name="dateOuverture" />
 			<basic name="decouvert" />
-			<!-- <many-to-one name="Client"> -->
-			<!-- <join-column name="client" -->
-			<!-- referenced-column-name="idClient"></join-column> -->
-			<!-- </many-to-one> -->
+			<one-to-one name="client" mapped-by="cc" />
+			
 		</attributes>
 	</entity>
 
@@ -90,6 +90,8 @@
 			<basic name="solde" />
 			<basic name="dateOuverture" />
 			<basic name="taux" />
+			
+			<one-to-one name="client" mapped-by="ce"  />
 			
 		</attributes>
 
