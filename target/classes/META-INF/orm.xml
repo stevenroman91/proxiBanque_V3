@@ -15,14 +15,23 @@
 		<table name="conseillers" />
 		<attributes>
 			<id name="id">
-				<column name="idConseillerClientele" />
 				<generated-value strategy="IDENTITY" />
 			</id>
+			<basic name="nom" />
+			<basic name="prenom" />
+			<basic name="adresse" />
+			<basic name="codePostal" />
+			<basic name="ville" />
+			<basic name="telephone" />
 			<basic name="login" />
 			<basic name="password" />
-			<one-to-many name="clients" mapped-by="conseiller">
-			</one-to-many>
+
+            <one-to-many name="clients" mapped-by="conseiller">
+            
+            </one-to-many>
+
 		</attributes>
+
 	</entity>
 
 
@@ -30,22 +39,30 @@
 		<table name="clients" />
 		<attributes>
 			<id name="id">
-				<column name="idClient" />
 				<generated-value strategy="IDENTITY" />
 			</id>
+			<basic name="nom" />
+			<basic name="prenom" />
+			<basic name="adresse" />
+			<basic name="codePostal" />
+			<basic name="ville" />
+			<basic name="telephone" />
 			<basic name="typeClient" />
+
+			<one-to-one name="cc">
+				<join-column name="idCC" referenced-column-name="id"></join-column>
+			</one-to-one>
+
+			<one-to-one name="ce">
+				<join-column name="idCE" referenced-column-name="id"></join-column>
+			</one-to-one>
+
 			<many-to-one name="conseiller">
 				<join-column name="idConseiller"
 					referenced-column-name="id" />
 			</many-to-one>
-			<one-to-one name="cc">
-				<join-column name="idCompteCourant"
-					referenced-column-name="id" />
-			</one-to-one>
-			<one-to-one name="ce">
-				<join-column name="idCompteEpargne"
-					referenced-column-name="id" />
-			</one-to-one>
+
+
 		</attributes>
 	</entity>
 
@@ -53,21 +70,28 @@
 	<entity class="model.CompteCourant">
 		<attributes>
 			<id name="id">
-				<column name="idCompteCourant" />
 				<generated-value strategy="IDENTITY" />
 			</id>
+			<basic name="solde" />
+			<basic name="dateOuverture" />
 			<basic name="decouvert" />
+			<!-- <many-to-one name="Client"> -->
+			<!-- <join-column name="client" -->
+			<!-- referenced-column-name="idClient"></join-column> -->
+			<!-- </many-to-one> -->
 		</attributes>
 	</entity>
 
 	<entity class="model.CompteEpargne">
 		<attributes>
 			<id name="id">
-				<column name="idCompteEpargne" />
 				<generated-value strategy="IDENTITY" />
 			</id>
+			<basic name="solde" />
+			<basic name="dateOuverture" />
 			<basic name="taux" />
+			
 		</attributes>
-	</entity>
 
+	</entity>
 </entity-mappings>
