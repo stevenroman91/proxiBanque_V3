@@ -13,7 +13,6 @@
 	<servlet-mapping>
 		<servlet-name>spring-dispatcher</servlet-name>
 		<url-pattern>*.html</url-pattern>
-		<!-- <url-pattern>*.ws</url-pattern> -->
 	</servlet-mapping>
 	
 </web-app>
