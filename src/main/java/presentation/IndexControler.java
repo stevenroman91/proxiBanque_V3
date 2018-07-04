@@ -39,7 +39,7 @@ public class IndexControler {
 	
 	@PostMapping("/login")
 	public String loggin (@RequestParam("login") String username, @RequestParam("pwd") String password ) {
-		final ModelAndView mav = new ModelAndView("index") ; 
+		
 		//conseillerService.
 		LOGGER.info(username) ;
 		LOGGER.info(password) ;
