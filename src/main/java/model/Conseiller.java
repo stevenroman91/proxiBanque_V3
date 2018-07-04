@@ -21,7 +21,7 @@ public class Conseiller implements Entity,Serializable {
 	private String telephone;
 	private String login ;
 	private String password ;
-	List <Client> clients  ;
+	private List <Client> clients  ;
 	
 	/**
 	 * @return the id

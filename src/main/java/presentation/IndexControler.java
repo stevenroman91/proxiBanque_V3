@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.ClientService;
@@ -31,9 +33,26 @@ public class IndexControler {
 	private CompteEpargneService compteEpargneService ;
 	
 	@RequestMapping("/login")
-	public ModelAndView loggin () {
-		final ModelAndView mav = new ModelAndView("login") ; 
-		return mav ; 
+	public String vueLogin() {
+		return "login" ;
 	}
+	
+	@PostMapping("/login")
+	public String loggin (@RequestParam("login") String username, @RequestParam("pwd") String password ) {
+		final ModelAndView mav = new ModelAndView("index") ; 
+		//conseillerService.
+		LOGGER.info(username) ;
+		LOGGER.info(password) ;
+		return "redirect:/index.html" ; 
+	}
+	
+	@RequestMapping("/index")
+	public ModelAndView vueIndex() {
+		ModelAndView mav = new ModelAndView ("index") ;
+		return mav ; 
+		
+	}
+	
+	
 
 }
