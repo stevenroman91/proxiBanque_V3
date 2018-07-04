@@ -17,7 +17,7 @@ public class Client implements Entity,Serializable {
 	private String typeClient ; 
 	private CompteCourant cc;
 	private CompteEpargne ce;
-	private Conseiller conseiller ;
+	
 	
 	/**
 	 * @return the id
@@ -139,19 +139,7 @@ public class Client implements Entity,Serializable {
 	public void setCe(CompteEpargne ce) {
 		this.ce = ce;
 	}
-	/**
-	 * @return the conseiller
-	 */
-	public Conseiller getConseiller() {
-		return conseiller;
-	}
-	/**
-	 * @param conseiller the conseiller to set
-	 */
-	public void setConseiller(Conseiller conseiller) {
-		this.conseiller = conseiller;
-	}
-	
+
 	
 	
 	
