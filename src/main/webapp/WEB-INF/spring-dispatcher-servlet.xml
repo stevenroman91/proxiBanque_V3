@@ -24,7 +24,6 @@
 	</bean>
 	
 	<bean id="clientService" class="service.ClientService" />
-	<bean id="conseillerService" class="service.ConseillerService" />
 	<bean id="compteCourtantService" class="service.CompteCourantService" />
 	<bean id="compteEpargneService" class="service.CompteEpargneService" />
 	
