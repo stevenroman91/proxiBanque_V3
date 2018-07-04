@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.List;
 
-public class Conseiller implements Serializable {
+public class Conseiller implements Entity,Serializable {
 	
 	/**
 	 * 

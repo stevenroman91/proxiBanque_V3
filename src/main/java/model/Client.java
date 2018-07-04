@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Client implements Serializable {
+public class Client implements Entity,Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;

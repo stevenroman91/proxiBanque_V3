@@ -16,7 +16,7 @@
 		<attributes>
 			<id name="id">
 				<column name="idConseillerClientele" />
-				<generated-value strategy="IDENTITY"/>
+				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="login" />
 			<basic name="password" />
@@ -31,7 +31,7 @@
 		<attributes>
 			<id name="id">
 				<column name="idClient" />
-				<generated-value strategy="IDENTITY"/>
+				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="typeClient" />
 			<many-to-one name="conseiller">
@@ -50,24 +50,24 @@
 	</entity>
 
 
-<!-- 	<entity class="model.CompteCourant"> -->
-<!-- 		<attributes> -->
-<!-- 			<id name="id"> -->
-<!-- 				<column name="idCompteCourant" /> -->
-<!-- 				<generated-value strategy="IDENTITY"/> -->
-<!-- 			</id> -->
-<!-- 			<basic name="decouvert" /> -->
-<!-- 		</attributes> -->
-<!-- 	</entity> -->
+	<entity class="model.CompteCourant">
+		<attributes>
+			<id name="id">
+				<column name="idCompteCourant" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="decouvert" />
+		</attributes>
+	</entity>
 
-<!-- 	<entity class="model.CompteEpargne"> -->
-<!-- 		<attributes> -->
-<!-- 			<id name="id"> -->
-<!-- 				<column name="idCompteEpargne" /> -->
-<!-- 				<generated-value strategy="IDENTITY"/> -->
-<!-- 			</id> -->
-<!-- 			<basic name="taux" /> -->
-<!-- 		</attributes> -->
-<!-- 	</entity> -->
+	<entity class="model.CompteEpargne">
+		<attributes>
+			<id name="id">
+				<column name="idCompteEpargne" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="taux" />
+		</attributes>
+	</entity>
 
 </entity-mappings>
