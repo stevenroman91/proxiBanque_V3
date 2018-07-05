@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 05 juil. 2018 à 15:24
+-- Généré le :  jeu. 05 juil. 2018 à 15:48
 -- Version du serveur :  10.1.32-MariaDB
 -- Version de PHP :  7.2.5
 
@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `blog`
 --
+
+CREATE DATABASE proxibanquev3;
+USE proxibanquev3;
 
 -- --------------------------------------------------------
 
@@ -53,7 +56,9 @@ INSERT INTO `adresse` (`id`, `adressePrincipale`, `adresseSecondaire`, `codePost
 (9, '125 rue Odessa', 'Batiment 9', '75009', 'France', 'Paris'),
 (10, '130 rue Odessa', 'Batiment 10', '75010', 'France', 'Paris'),
 (11, '135 rue Odessa', 'Batiment 11', '75011', 'France', 'Paris'),
-(12, '140 rue Odessa', 'Batiment 12', '75012', 'France', 'Paris');
+(12, '140 rue Odessa', 'Batiment 12', '75012', 'France', 'Paris'),
+(13, '145 rue Odessa', 'Batiment 13', '75013', 'France', 'Paris'),
+(14, '150 rue Odessa', 'Batiment 14', '75014', 'France', 'Paris');
 
 -- --------------------------------------------------------
 
@@ -140,20 +145,20 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `dateDeNaissance`, `nom`, `numClient`, `prenom`, `idAdresse`) VALUES
-(1, '1991-12-16', 'SISI', 6990032, 'Kamir', NULL),
-(2, '1991-11-16', 'USSUNET', 1984135, 'Quentin', NULL),
-(3, '1991-10-16', 'VALLETE', 6110025, 'Arnaud', NULL),
-(4, '1991-09-16', 'LENOIR', 7146389, 'Fabien', NULL),
-(5, '1991-08-16', 'VOLATRON', 6181924, 'Antoine', NULL),
-(6, '1991-07-16', 'LLORIS', 7598563, 'Hugo', NULL),
-(7, '1991-06-16', 'POGBA', 6879525, 'Paul', NULL),
-(8, '1991-05-16', 'GRIEZMAN', 6201401, 'Antoine', NULL),
-(9, '1991-04-16', 'MENDY', 6547963, 'Benjamin', NULL),
-(10, '1991-03-16', 'VARANE', 1003520, 'Raphael', NULL),
-(11, '1991-02-16', 'RAMI', 6698452, 'Adil', NULL),
-(12, '1991-01-16', 'UMTITI', 6987412, 'Samuel', NULL),
-(13, '1991-12-10', 'FEKIR', 7412030, 'Nabil', NULL),
-(14, '1991-12-05', 'MBAPPE', 6208899, 'Kylian', NULL);
+(1, '1991-12-16', 'SISI', 6990032, 'Kamir', 1),
+(2, '1991-11-16', 'USSUNET', 1984135, 'Quentin', 2),
+(3, '1991-10-16', 'VALLETE', 6110025, 'Arnaud', 3),
+(4, '1991-09-16', 'LENOIR', 7146389, 'Fabien', 4),
+(5, '1991-08-16', 'VOLATRON', 6181924, 'Antoine', 5),
+(6, '1991-07-16', 'LLORIS', 7598563, 'Hugo', 6),
+(7, '1991-06-16', 'POGBA', 6879525, 'Paul', 7),
+(8, '1991-05-16', 'GRIEZMAN', 6201401, 'Antoine', 8),
+(9, '1991-04-16', 'MENDY', 6547963, 'Benjamin', 9),
+(10, '1991-03-16', 'VARANE', 1003520, 'Raphael', 10),
+(11, '1991-02-16', 'RAMI', 6698452, 'Adil', 11),
+(12, '1991-01-16', 'UMTITI', 6987412, 'Samuel', 12),
+(13, '1991-12-10', 'FEKIR', 7412030, 'Nabil', 13),
+(14, '1991-12-05', 'MBAPPE', 6208899, 'Kylian', 14);
 
 -- --------------------------------------------------------
 
@@ -177,18 +182,18 @@ CREATE TABLE `compte` (
 --
 
 INSERT INTO `compte` (`id`, `dateOuverture`, `libelle`, `numCompte`, `solde`, `idCarteBleu`, `idChequier`, `idClient`) VALUES
-(1, '2014-02-01', 'particulier', 2000123456123, 1000, NULL, NULL, NULL),
-(2, '2014-06-02', 'professionnel', 1500147852369, 750, NULL, NULL, NULL),
-(3, '2014-04-03', 'particulier', 1500987456321, 150, NULL, NULL, NULL),
-(4, '2014-03-04', 'professionnel', 2000159874236, 860, NULL, NULL, NULL),
-(5, '2014-09-05', 'professionnel', 1500153269854, 786, NULL, NULL, NULL),
-(6, '2014-11-06', 'particulier', 1000917456321, 400, NULL, NULL, NULL),
-(7, '2014-05-07', 'particulier', 2000111235666, 900, NULL, NULL, NULL),
-(8, '2014-10-08', 'professionnel', 1000999865532, 700, NULL, NULL, NULL),
-(9, '2014-12-09', 'professionnel', 1000789546353, 680, NULL, NULL, NULL),
-(10, '2014-02-10', 'particulier', 2000114477852, 290, NULL, NULL, NULL),
-(11, '2014-07-11', 'professionnel', 1000963963123, 740, NULL, NULL, NULL),
-(12, '2014-09-13', 'particulier', 1500951357852, 999, NULL, NULL, NULL);
+(1, '2014-02-01', 'particulier', 2000123456123, 1000, 1, 1, 1),
+(2, '2014-06-02', 'professionnel', 1500147852369, 750, 2, 14, 1),
+(3, '2014-04-03', 'particulier', 1500987456321, 150, 3, 13, 2),
+(4, '2014-03-04', 'professionnel', 2000159874236, 860, 4, 12, 3),
+(5, '2014-09-05', 'professionnel', 1500153269854, 786, 5, 11, 4),
+(6, '2014-11-06', 'particulier', 1000917456321, 400, 6, 10, 5),
+(7, '2014-05-07', 'particulier', 2000111235666, 900, 14, 9, 6),
+(8, '2014-10-08', 'professionnel', 1000999865532, 700, 13, 8, 7),
+(9, '2014-12-09', 'professionnel', 1000789546353, 680, 12, 7, 8),
+(10, '2014-02-10', 'particulier', 2000114477852, 290, 11, 6, 9),
+(11, '2014-07-11', 'professionnel', 1000963963123, 740, 10, 5, 10),
+(12, '2014-09-13', 'particulier', 1500951357852, 999, 9, 4, 12);
 
 --
 -- Index pour les tables déchargées
