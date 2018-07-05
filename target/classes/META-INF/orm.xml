@@ -11,7 +11,7 @@
 
 
 
-	
+
 
 
 	<entity class="model.Client">
@@ -26,18 +26,35 @@
 			<basic name="prenom" />
 			<basic name="dateDeNaissance" />
 
-			<many-to-one name="comptes">
-				<join-column name="idCompte" referenced-column-name="id"></join-column>
-			</many-to-one>
-			
+			<one-to-many name="comptes" mapped-by="client">
+
+			</one-to-many>
+
 			<one-to-one name="adresse">
-				<join-column name="idAdresse" referenced-column-name="id"></join-column>
+				<join-column name="idAdresse"
+					referenced-column-name="id"></join-column>
 			</one-to-one>
-
-
-
-
 		</attributes>
+	</entity>
+
+
+	<entity class="model.Adresse">
+
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="adressePrincipale" />
+			<basic name="adresseSecondaire" />
+			<basic name="codePostal" />
+			<basic name="ville" />
+			<basic name="pays" />
+
+			<one-to-one name="client" mapped-by="adresse">
+			</one-to-one>
+		</attributes>
+
+
 	</entity>
 
 
@@ -46,15 +63,55 @@
 			<id name="id">
 				<generated-value strategy="IDENTITY" />
 			</id>
-			<basic name="solde" />
+			<basic name="numCompte" />
 			<basic name="dateOuverture" />
-			<basic name="decouvert" />
-			
-			<one-to-many name="comptes" mapped-by="client">
-			
-			</one-to-many>
-			<one-to-one name="client" mapped-by="cc" />
-			
+			<basic name="libelle" />
+			<basic name="solde" />
+
+			<many-to-one name="client">
+				<join-column name="idClient" referenced-column-name="id" />
+			</many-to-one>
+
+			<one-to-one name="chequier">
+				<join-column name="idChequier"
+					referenced-column-name="id" />
+			</one-to-one>
+
+			<one-to-one name="carteBleu">
+				<join-column name="idCarteBleu"
+					referenced-column-name="id" />
+			</one-to-one>
 		</attributes>
+	</entity>
+
+	<entity class="model.Chequier">
+
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="dateEnvoi"></basic>
+			<basic name="dateReception"></basic>
+
+			<one-to-one name="compte" mapped-by="chequier">
+			</one-to-one>
+		</attributes>
+
+
+	</entity>
+
+	<entity class="model.CarteBleu">
+
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="numCarte"></basic>
+			<basic name="dateExpiration"></basic>
+			<basic name="type"></basic>
+			<one-to-one name="compte" mapped-by="carteBleu">
+			</one-to-one>
+		</attributes>
+
 	</entity>
 </entity-mappings>

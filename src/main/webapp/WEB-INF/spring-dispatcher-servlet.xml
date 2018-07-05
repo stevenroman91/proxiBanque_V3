@@ -24,8 +24,10 @@
 	</bean>
 	
 	<bean id="clientService" class="service.ClientService" />
-	<bean id="compteCourtantService" class="service.CompteCourantService" />
-	<bean id="compteEpargneService" class="service.CompteEpargneService" />
+	<bean id="adresseService" class="service.AdresseService" />
+	<bean id="carteBleuService" class="service.CarteBleuService" />
+	<bean id="chequierService" class="service.ChequierService" />
+	<bean id="compteService" class="service.CompteService" />
 	
 	
 	<bean id="entityManagerFactory"

@@ -16,6 +16,7 @@ public class Adresse implements Entity,Serializable{
 	private String codePostal;
 	private String ville;
 	private String pays;
+	private Client client ; 
 	
 	@Override
 	public Integer getId() {
@@ -84,6 +85,12 @@ public class Adresse implements Entity,Serializable{
 	 */
 	public void setPays(String pays) {
 		this.pays = pays;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 }
