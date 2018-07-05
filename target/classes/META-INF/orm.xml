@@ -45,7 +45,7 @@
 	</entity>
 
 
-	<entity class="model.CompteCourant">
+	<entity class="model.Compte">
 		<attributes>
 			<id name="id">
 				<generated-value strategy="IDENTITY" />
@@ -56,20 +56,5 @@
 			<one-to-one name="client" mapped-by="cc" />
 			
 		</attributes>
-	</entity>
-
-	<entity class="model.CompteEpargne">
-		<attributes>
-			<id name="id">
-				<generated-value strategy="IDENTITY" />
-			</id>
-			<basic name="solde" />
-			<basic name="dateOuverture" />
-			<basic name="taux" />
-			
-			<one-to-one name="client" mapped-by="ce"  />
-			
-		</attributes>
-
 	</entity>
 </entity-mappings>

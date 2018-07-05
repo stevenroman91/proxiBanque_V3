@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Client implements Entity,Serializable {
 	
@@ -14,8 +15,7 @@ public class Client implements Entity,Serializable {
 	private String prenom;
 	private LocalDate dateDeNaissance;
 	private Adresse adresse;
-	private CompteCourant compteCourant;
-	private CompteEpargne compteEpargne;
+	private List<Compte> comptes;
 	
 	//Méthodes de l'interface Entity implémentée pour la classe Client
 	
@@ -89,29 +89,18 @@ public class Client implements Entity,Serializable {
 		this.adresse = adresse;
 	}
 	/**
-	 * @return the compteCourant
+	 * @return the comptes
 	 */
-	public CompteCourant getCompteCourant() {
-		return compteCourant;
+	public List<Compte> getComptes() {
+		return comptes;
 	}
 	/**
-	 * @param compteCourant the compteCourant to set
+	 * @param comptes the comptes to set
 	 */
-	public void setCompteCourant(CompteCourant compteCourant) {
-		this.compteCourant = compteCourant;
+	public void setComptes(List<Compte> comptes) {
+		this.comptes = comptes;
 	}
-	/**
-	 * @return the compteEpargne
-	 */
-	public CompteEpargne getCompteEpargne() {
-		return compteEpargne;
-	}
-	/**
-	 * @param compteEpargne the compteEpargne to set
-	 */
-	public void setCompteEpargne(CompteEpargne compteEpargne) {
-		this.compteEpargne = compteEpargne;
-	}
+	
 	
 	
 

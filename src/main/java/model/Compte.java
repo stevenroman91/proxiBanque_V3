@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CompteCourant implements Entity, Serializable {
+public class Compte implements Entity, Serializable {
 	/**
 	 * 
 	 */
