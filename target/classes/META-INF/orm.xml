@@ -49,6 +49,10 @@
 			<basic name="solde" />
 			<basic name="dateOuverture" />
 			<basic name="decouvert" />
+			
+			<one-to-many name="comptes" mapped-by="client">
+			
+			</one-to-many>
 			<one-to-one name="client" mapped-by="cc" />
 			
 		</attributes>
