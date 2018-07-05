@@ -17,32 +17,34 @@
 		<h2>Application ProxyBanque</h2>
 		<p>Bienvenue sur l'application ProxyBanque</p>
 		<br>
-		<c:when test="${empty idSearch}">
-			<form method="post" class="form-inline">
-				<label for="login">Nom et/ou Prenom </label>
-				<div class="form-group">
-					<input type="text" class="form-control" id="keywords"
-						name="keywords" placeholder="Conseiller">
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-success btn-lg">
-						Rechercher</button>
-				</div>
-			</form>
-		</c:when>
-		<c:otherwise>
-			<form method="post" class="form-inline">
-				<label for="login">Date de naissance </label>
-				<div class="form-group">
-					<input type="text" class="form-control" id="dateDeNaissance"
-						name="dateDeNaissance" placeholder="Conseiller">
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-success btn-lg">
-						Rechercher</button>
-				</div>
-			</form>
-		</c:otherwise>
+		<c:choose>
+			<c:when test="${empty idSearch}">
+				<form method="post" class="form-inline">
+					<label for="login">Nom et/ou Prenom </label>
+					<div class="form-group">
+						<input type="text" class="form-control" id="keywords"
+							name="keywords" placeholder="Conseiller">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success btn-lg">
+							Rechercher</button>
+					</div>
+				</form>
+			</c:when>
+			<c:otherwise>
+				<form method="post" class="form-inline">
+					<label for="login">Date de naissance </label>
+					<div class="form-group">
+						<input type="text" class="form-control" id="dateDeNaissance"
+							name="dateDeNaissance" placeholder="Conseiller">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success btn-lg">
+							Rechercher</button>
+					</div>
+				</form>
+			</c:otherwise>
+		</c:choose>
 	</section>
 
 	<!-- Section 1  -->
