@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import model.Client;
 import service.ClientService;
-import service.CompteCourantService;
+import service.CompteService;
 
 @Controller
 public class IndexControler {
@@ -23,7 +23,7 @@ public class IndexControler {
 	private ClientService clientService;
 
 	@Autowired
-	private CompteCourantService compteCourantService;
+	private CompteService compteCourantService;
 
 	@RequestMapping("/index")
 	public ModelAndView vueIndex() {

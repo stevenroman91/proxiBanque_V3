@@ -1,18 +1,15 @@
-/**
- * 
- */
 package dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import model.Compte;
+import model.CarteBleu;
 
 /**
- * @author Nadir
+ * @author Steven Roman & Nadir Boutra
  *
  */
 @Repository
-public interface CompteCourantRepository extends JpaRepository <Compte, Integer> {
+public interface CarteBleuRepository extends JpaRepository <CarteBleu, Integer>{
 
 }
