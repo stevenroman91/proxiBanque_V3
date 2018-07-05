@@ -41,7 +41,7 @@
 			ref="entityManagerFactory" />
 	</bean>
 	
-	<jpa:repositories base-package="dao" />
+	<jpa:repositories base-package="fr.gtm.proxiBanque.dao" />
  
  
  </beans>
