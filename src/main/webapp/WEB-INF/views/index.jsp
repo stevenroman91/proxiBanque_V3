@@ -16,44 +16,25 @@
 
 
 	<nav class="navbar navbar-inverse navbar-static-top">
-
 		<div class="container-fluid">
-
 			<ul class="nav navbar-left">
-
 				<li role="presentation"><a href="clientsoperations.jsp"><span
 						class="glyphicon glyphicon-home" aria-hidden="true"></span>
 						Accueil ProxiBanque</a></li>
-
 			</ul>
-
 			<ul class="nav navbar-right">
-
 				<li role="presentation"><a href="LogOutServlet"><span
 						class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-
 						Deconnexion</a></li>
-
 			</ul>
-
 		</div>
-
 	</nav>
 
 	<!-- Banner -->
 
 	<div id="banner">
-
-
-
-		</tbody>
-
-
-
 		<h2>Application ProxiBanque</h2>
-
 		<p>Bienvenue dans votre espace ProxiBanque</p>
-
 		<br>
 
 
@@ -61,65 +42,48 @@
 		<!-- Liste des clients du conseiller -->
 
 		<div class="panel panel-default">
-
 			<div class="panel-heading">Liste des clients</div>
 
 			<table class="table">
-
 				<thead>
-
-					<tr>
-						<th>ID</th>
-						<th>Nom</th>
-						<th>Prénom</th>
-						<th>Adresse</th>
-						<th>code Postal</th>
-						<th>Ville</th>
-						<th>Type Client</th>
-						<th>Telephone</th>
-
-
-
+					<tr style="font-weight:bold">
+						<td>ID</td>
+						<td>Nom</td>
+						<td>Prenom</td>
+						<td>Adresse</td>
+						<td>Code Postal</td>
+						<td>Ville</td>
+						<td>Type Client</td>
+						<td>Telephone</td>
 					</tr>
-
 				</thead>
 
 				<tbody>
 
 					<c:forEach var="client" items="${listeClient}">
 						<tr>
-							<td scope="row"><c:out value="${client.id}" /></td>
-
-							<td><c:out value="${client.nom}" /></td>
-
-							<td><c:out value="${client.prenom}" /></td>
-							<td><c:out value="${client.adresse}" /></td>
-							<td><c:out value="${client.codePostal}" /></td>
-							<td><c:out value="${client.ville}" /></td>
-							<td><c:out value="${client.typeClient}" /></td>
-							<td><c:out value="${client.telephone}" /></td>
-
-
-
+							<td>${client.id}</td>
+							<td>${client.nom}</td>
+							<td>${client.prenom}</td>
+							<td>${client.adresse}</td>
+							<td>${client.codePostal}</td>
+							<td>${client.ville}</td>
+							<td>${client.typeClient}</td>
+							<td>${client.telephone}</td>
 						</tr>
-
 					</c:forEach>
-
 				</tbody>
-
 			</table>
-
 		</div>
 
 		<c:url value="/" var="chemin" />
 
 		<br>
 
-		<form action="${chemin}modifier.html" method="get"
+		<form  method="post"
 			class="form-inline form-group container">
 
-			<label for="idClient">ID Client </label> 
-			<select class="form-control"
+			<label for="idClient">ID Client</label> <select class="form-control"
 				name="idClient" id="idClient">
 
 				<c:forEach var="client" items="${listeClient}">

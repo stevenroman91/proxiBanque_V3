@@ -31,30 +31,28 @@ public class IndexControler {
 
 	@RequestMapping("/index")
 	public ModelAndView vueIndex() {
-
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("listeClient", clientService.getList());
 		return mav;
 	}
-	
-//	@PostMapping("/index")
-//	public String modification() {
-//		return "redirect:/modifier.html" ;
-//		
-//	}
 
-	@RequestMapping("/modifier")
-	public ModelAndView vueModifier(@RequestParam("idClient") Integer id) {
+	@PostMapping("/index")
+	public String essai(@RequestParam("idClient") Integer id) {
 		ModelAndView mav = new ModelAndView("modifier");
 		mav.addObject("client", clientService.read(id));
-		LOGGER.info("Je suis rentré par le get");
-		return mav;
+		return "redirect:/modifier.html";
 	}
 
-	@PostMapping("/modifier")
-	public String modifier() {
-		LOGGER.info("Je suis rentré par le post");
-		return "redirect:/index.html";
+	@RequestMapping("/modifier")
+	public String vueModifier() {
+		
+		return "/modifier";
 	}
+
+	// @PostMapping("/modifier")
+	// public String modifier() {
+	// LOGGER.info("Je suis rentré par le post");
+	// return "redirect:/index.html";
+	// }
 
 }
