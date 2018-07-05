@@ -29,6 +29,8 @@
 	<bean id="chequierService" class="fr.gtm.proxiBanque.service.ChequierService" />
 	<bean id="compteService" class="fr.gtm.proxiBanque.service.CompteService" />
 	
+	<bean id="sc" class="fr.gtm.proxiBanque.service.SearchClientComponent" scope="prototype" />
+	
 	
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

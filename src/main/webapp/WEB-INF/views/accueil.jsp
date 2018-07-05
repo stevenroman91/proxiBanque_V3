@@ -32,7 +32,7 @@
 				</form>
 			</c:when>
 			<c:otherwise>
-				<form method="post" class="form-inline">
+				<form action="" method="post" class="form-inline">
 					<label for="login">Date de naissance </label>
 					<div class="form-group">
 						<input type="text" class="form-control" id="dateDeNaissance"
