@@ -1,7 +1,7 @@
-package service;
+package fr.gtm.proxiBanque.service;
 
-import dao.AdresseRepository;
-import model.Adresse;
+import fr.gtm.proxiBanque.dao.AdresseRepository;
+import fr.gtm.proxiBanque.model.Adresse;
 
 public class AdresseService  extends CrudService<Adresse> {
 

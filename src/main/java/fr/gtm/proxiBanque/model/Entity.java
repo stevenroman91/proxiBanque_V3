@@ -1,4 +1,4 @@
-package model;
+package fr.gtm.proxiBanque.model;
 
 public interface Entity {
 	

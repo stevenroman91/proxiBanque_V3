@@ -5,4 +5,5 @@
  * @author Nadir
  *
  */
-package dao;
+package fr.gtm.proxiBanque.model;
+

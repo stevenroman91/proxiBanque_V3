@@ -1,4 +1,4 @@
-package presentation;
+package fr.gtm.proxiBanque.presentation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import model.Client;
-import service.ClientService;
-import service.CompteService;
+import fr.gtm.proxiBanque.model.Client;
+import fr.gtm.proxiBanque.service.ClientService;
+import fr.gtm.proxiBanque.service.CompteService;
 
 @Controller
 public class IndexControler {

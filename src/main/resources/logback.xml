@@ -25,11 +25,11 @@
 	</appender>
 
 
-	<logger level="debug" name="presentation" additivity="false">
+	<logger level="debug" name="fr.gtm.proxiBanque.presentation" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 	
-	<logger level="info" name="presentation" additivity="false">
+	<logger level="info" name="fr.gtm.proxiBanque.presentation" additivity="false">
 		<appender-ref ref="APPLOG" />
 		
 	</logger>

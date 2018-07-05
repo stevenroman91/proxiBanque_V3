@@ -1,4 +1,4 @@
-package model;
+package fr.gtm.proxiBanque.model;
 
 import java.io.Serializable;
 

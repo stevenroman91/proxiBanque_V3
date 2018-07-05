@@ -1,7 +1,7 @@
-package service;
+package fr.gtm.proxiBanque.service;
 
-import dao.ChequierRepository;
-import model.Chequier;
+import fr.gtm.proxiBanque.dao.ChequierRepository;
+import fr.gtm.proxiBanque.model.Chequier;
 
 public class ChequierService extends CrudService<Chequier>{
 	public ChequierRepository getRepo() {

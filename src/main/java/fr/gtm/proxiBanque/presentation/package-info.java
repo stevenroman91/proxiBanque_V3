@@ -5,5 +5,4 @@
  * @author Nadir
  *
  */
-package model;
-
+package fr.gtm.proxiBanque.presentation;

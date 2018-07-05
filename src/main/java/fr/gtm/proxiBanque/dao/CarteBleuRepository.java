@@ -1,18 +1,15 @@
-/**
- * 
- */
-package dao;
+package fr.gtm.proxiBanque.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import model.Client;
+import fr.gtm.proxiBanque.model.CarteBleu;
 
 /**
  * @author Steven Roman & Nadir Boutra
  *
  */
 @Repository
-public interface ClientRepository extends JpaRepository <Client, Integer> {
+public interface CarteBleuRepository extends JpaRepository <CarteBleu, Integer>{
 
 }

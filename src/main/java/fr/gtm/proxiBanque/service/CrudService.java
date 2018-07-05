@@ -1,4 +1,4 @@
-package service;
+package fr.gtm.proxiBanque.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import model.Entity;
+import fr.gtm.proxiBanque.model.Entity;
 
 public abstract class CrudService<ENTITY extends Entity> {
 
