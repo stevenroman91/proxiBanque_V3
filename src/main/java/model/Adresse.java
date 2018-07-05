@@ -10,6 +10,7 @@ public class Adresse implements Entity,Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Integer id;
 	private String adressePrincipale;
 	private String adresseSecondaire;
 	private String codePostal;
@@ -18,13 +19,11 @@ public class Adresse implements Entity,Serializable{
 	
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.id;
 	}
 	@Override
 	public void setId(Integer id) {
-		// TODO Auto-generated method stub
-		
+		this.id=id;
 	}
 	/**
 	 * @return the adressePrincipale which is the address of the client

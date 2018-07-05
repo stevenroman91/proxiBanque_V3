@@ -19,13 +19,11 @@ public class CompteEpargne implements Entity, Serializable {
 	
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.id;
 	}
 	@Override
 	public void setId(Integer id) {
-		// TODO Auto-generated method stub
-		
+		this.id=id;
 	}
 	
 	/**
