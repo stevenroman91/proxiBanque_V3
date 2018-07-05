@@ -13,6 +13,7 @@ public class CarteBleu implements Entity,Serializable {
 	private long numCarte;
 	private LocalDate dateExpiration;
 	private String type;
+	private Compte compte;
 	
 	@Override
 	public Integer getId() {
@@ -57,6 +58,18 @@ public class CarteBleu implements Entity,Serializable {
 	 */
 	public void setType(String type) {
 		this.type = type;
+	}
+	/**
+	 * @return the compte
+	 */
+	public Compte getCompte() {
+		return compte;
+	}
+	/**
+	 * @param compte the compte to set
+	 */
+	public void setCompte(Compte compte) {
+		this.compte = compte;
 	}
 	
 	

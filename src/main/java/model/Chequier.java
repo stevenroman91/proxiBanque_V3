@@ -11,6 +11,7 @@ public class Chequier implements Entity,Serializable {
 	private Integer id;
 	private LocalDate dateEnvoi;
 	private LocalDate dateReception;
+	private Compte compte;
 	
 	
 	@Override
@@ -44,6 +45,18 @@ public class Chequier implements Entity,Serializable {
 	 */
 	public void setDateReception(LocalDate dateReception) {
 		this.dateReception = dateReception;
+	}
+	/**
+	 * @return the compte
+	 */
+	public Compte getCompte() {
+		return compte;
+	}
+	/**
+	 * @param compte the compte to set
+	 */
+	public void setCompte(Compte compte) {
+		this.compte = compte;
 	}
 	
 	
