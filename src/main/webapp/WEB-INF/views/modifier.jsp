@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,16 +55,17 @@
 
 			<div class="container">
 
-				<form class="form-group row" method="post">
+				<form:form modelAttribute="modelClient" class="form-group row" method="post">
 
-					<input type="hidden" name="idPersonne" value="${client.id}">
+					<form:hidden path="id" />
 
 					<label for="nomClient" class="col-sm-2 col-form-label">Nom</label>
 
 					<div class="col-sm-10">
 
-						<input value="${client.nom}" type="text" class="form-control"
-							id="nomClient" name="nomClient" placeholder="nom"> <br>
+						<form:input type="text" class="form-control" id="nomClient"
+							path="nom" placeholder="nom" />
+						<br>
 
 					</div>
 
@@ -76,38 +77,20 @@
 
 					<div class="col-sm-10">
 
-						<input value="${client.prenom}" type="text" class="form-control"
-							id="prenomClient" name="prenomClient" placeholder="prenom">
+						<form:input type="text" class="form-control" id="prenomClient"
+							path="prenom" placeholder="prenom" />
 
 						<br>
 
 					</div>
 
-
-
-
-
-					<label for="emailClient" class="col-sm-2 col-form-label">Mail</label>
-
-					<div class="col-sm-10">
-
-						<input value="${client.adresse}" type="email" class="form-control"
-							id="adresseClient" name="adresseClient"
-							placeholder="mail@domain.com"> <br>
-
-					</div>
-
-
-
-
-
 					<label for="adresseClient" class="col-sm-2 col-form-label">Adresse</label>
 
 					<div class="col-sm-10">
 
-						<input value="${client.adresse}" type="text" class="form-control"
-							id="adresseClient" name="adresseClient"
-							placeholder="ex:13 rue gambetta"> <br>
+						<form:input type="text" class="form-control" id="adresseClient"
+							path="adresse" placeholder="ex:13 rue gambetta" />
+						<br>
 
 					</div>
 
@@ -118,9 +101,9 @@
 
 					<div class="col-sm-10">
 
-						<input value="${client.codePostal}" type="text"
-							class="form-control" id="cpClient" name="cpClient"
-							placeholder="ex:75000"> <br>
+						<form:input type="text" class="form-control" id="cpClient"
+							path="codePostal" placeholder="ex:75000" />
+						<br>
 
 					</div>
 
@@ -132,8 +115,8 @@
 
 					<div class="col-sm-10">
 
-						<input value="${client.ville}" type="text" class="form-control"
-							id="villeClient" name="villeClient" placeholder="ex:Paris">
+						<form:input type="text" class="form-control" id="villeClient"
+							path="ville" placeholder="ex:Paris" />
 
 						<br>
 
@@ -144,14 +127,15 @@
 
 					<div class="col-sm-10">
 
-						<input value="${client.telephone}" type="tel"
+						<form:input type="tel"
 							pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-							class="form-control" id="telClient" name="telClient"
-							placeholder="ex:0612345678"> <br>
+							class="form-control" id="telClient" path="telephone"
+							placeholder="ex:0612345678" />
+						<br>
 					</div>
 					<button type="submit" class="btn btn-success btn-lg">Valider</button>
 
-				</form>
+				</form:form>
 
 			</div>
 

@@ -40,19 +40,21 @@ public class IndexControler {
 	public String essai(@RequestParam("idClient") Integer id) {
 		ModelAndView mav = new ModelAndView("modifier");
 		mav.addObject("client", clientService.read(id));
-		return "redirect:/modifier.html";
+		return "redirect:/modifier.html?id="+id;
 	}
 
 	@RequestMapping("/modifier")
-	public String vueModifier() {
-		
-		return "/modifier";
+	public ModelAndView vueModifier(@RequestParam("id") Integer id) {
+		final ModelAndView mav = new ModelAndView("modifier");
+		mav.getModel().put("modelClient", clientService.read(id));
+		return mav;
 	}
 
-	// @PostMapping("/modifier")
-	// public String modifier() {
-	// LOGGER.info("Je suis rentré par le post");
-	// return "redirect:/index.html";
-	// }
+	 @PostMapping("/modifier")
+	 public String modifier(@ModelAttribute Client modelClient) {
+	 LOGGER.info("Je suis rentré par le post");
+	 clientService.edit(modelClient);
+	 return "redirect:/index.html";
+	 }
 
 }
