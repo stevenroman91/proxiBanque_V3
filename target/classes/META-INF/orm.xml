@@ -21,23 +21,19 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="nom" />
+			<basic name="numClient" />
+			<basic name="nom" />
 			<basic name="prenom" />
-			<basic name="adresse" />
-			<basic name="codePostal" />
-			<basic name="ville" />
-			<basic name="telephone" />
-			<basic name="typeClient" />
-			
-			
-			
+			<basic name="dateDeNaissance" />
 
-			<one-to-one name="cc">
-				<join-column name="idCC" referenced-column-name="id"></join-column>
+			<many-to-one name="comptes">
+				<join-column name="idCompte" referenced-column-name="id"></join-column>
+			</many-to-one>
+			
+			<one-to-one name="adresse">
+				<join-column name="idAdresse" referenced-column-name="id"></join-column>
 			</one-to-one>
 
-			<one-to-one name="ce">
-				<join-column name="idCE" referenced-column-name="id"></join-column>
-			</one-to-one>
 
 
 
