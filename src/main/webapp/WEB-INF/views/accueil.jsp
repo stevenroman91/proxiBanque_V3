@@ -37,7 +37,7 @@
 					class="form-inline">
 					<label for="login">Date de naissance </label>
 					<div class="form-group">
-						<input type="text" class="form-control" id="dateDeNaissance"
+						<input type="date" class="form-control" id="dateDeNaissance"
 							name="dateDeNaissance" placeholder="Date de naissance">
 					</div>
 					<div class="form-group">
