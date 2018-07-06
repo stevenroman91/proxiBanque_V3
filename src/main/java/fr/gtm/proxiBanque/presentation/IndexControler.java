@@ -49,8 +49,10 @@ public class IndexControler {
 	}
 	
 	@GetMapping("/comptes")
-	public String vuecomptes() {
-		return "comptes";
+	public ModelAndView vuecomptes(@RequestParam("id") Integer id) {
+		ModelAndView mav = new ModelAndView("comptes");
+		mav.addObject("client",clientService.read(id));
+		return mav;
 	}
 	
 	
@@ -60,8 +62,7 @@ public class IndexControler {
 		//String reponse;
 		Client c = clientService.searchByBirthDate(dateDeNaissance, id); 
 		if (c != null) {
-			mav= new ModelAndView("redirect:/comptes.html");
-			mav.addObject("client",c);
+			mav= new ModelAndView("redirect:/comptes.html?id="+c.getId());
 			//LOGGER.info(c.getNom());
 			//mav.addObject("comptes",c.getComptes());
 		} else {
