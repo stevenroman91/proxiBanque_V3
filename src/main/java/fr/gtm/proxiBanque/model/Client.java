@@ -5,6 +5,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * CLASSE REPRESENTANT UN CLIENT
+ * @author Boutra Nadir && Steven Roman
+ * @version 3.0 
+ */
+
 public class Client implements Entity,Serializable {
 	
 	
@@ -18,93 +24,123 @@ public class Client implements Entity,Serializable {
 	private Adresse adresse;
 	private List<Compte> comptes = new ArrayList<>();
 	
-	//Méthodes de l'interface Entity implémentée pour la classe Client
 	
+	
+	/**
+	 * CONSTRUCTEUR PAR DEFAUT PERMETTANT DE CREER UN OBJECT VIDE DE TYPE Client 
+	 */
+	public Client() {
+		super();
+	}
+	/**
+	 * CONSTRUCTEUR PERMETTANT DE CREER UN OBJECT DE TYPE Client
+	 * @param numClient
+	 * @param nom
+	 * @param prenom
+	 * @param dateDeNaissance
+	 */
+	public Client(int numClient, String nom, String prenom, LocalDate dateDeNaissance) {
+		super();
+		this.numClient = numClient;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateDeNaissance = dateDeNaissance;
+	}
+	
+	/**
+	 * @return RETOURNE L'ID DU CLIENT
+	 */
 	@Override
 	public Integer getId() {
 		return this.id;
 	}
+	/**
+	 * EDITE L'ID DU Client
+	 * @param Integer id 
+	 */
 	@Override
 	public void setId(Integer id) {
 		this.id=id;
 	}
 	
 	/**
-	 * @return the numClient
+	 * @return RETOURNE LE NUMERO DU CLIENT
 	 */
 	public int getNumClient() {
 		return numClient;
 	}
 	/**
-	 * @param numClient the numClient to set
+	 * EDITE LE NUMERO DU CLIENT
+	 * @param int numClient 
 	 */
 	public void setNumClient(int numClient) {
 		this.numClient = numClient;
 	}
 	/**
-	 * @return the nom
+	 * @return RETOURNE LE NOM DU CLIENT
 	 */
 	public String getNom() {
 		return nom;
 	}
 	/**
-	 * @param nom the nom to set
+	 * EDITE LE NOM DU CLIENT
+	 * @param String nom  
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 	/**
-	 * @return the prenom
+	 * @return RETOURNE LE PRENOM DU CLIENT
 	 */
 	public String getPrenom() {
 		return prenom;
 	}
 	/**
-	 * @param prenom the prenom to set
+	 * EDITE LE PRENOM DU CLIENT
+	 * @param String prenom
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 	/**
-	 * @return the dateDeNaissance
+	 * @return RETOURNE LA DATE DE NAISSANCE DU CLIENT
 	 */
 	public LocalDate getDateDeNaissance() {
 		return dateDeNaissance;
 	}
 	/**
-	 * @param dateDeNaissance the dateDeNaissance to set
+	 * EDITE LE DATE DE NAISSANCE DU CLIENT
+	 * @param LocalDate dateDeNaissance 
 	 */
 	public void setDateDeNaissance(LocalDate dateDeNaissance) {
 		this.dateDeNaissance = dateDeNaissance;
 	}
 	/**
-	 * @return the adresse
+	 * @return RETOURNE LADRESSE DU CLIENT
 	 */
 	public Adresse getAdresse() {
 		return adresse;
 	}
 	/**
-	 * @param adresse the adresse to set
+	 * EDITE LADRESSE DU CLIENT
+	 * @param Adresse adresse
 	 */
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
 	/**
-	 * @return the comptes
+	 * @return RETOURNE LA LISTE DES COMPTES DU CLIENT
 	 */
 	public List<Compte> getComptes() {
 		return comptes;
 	}
 	/**
-	 * @param comptes the comptes to set
+	 * EDITE LA LISTE DES COMPTES DU CLIENT
+	 * @param List<Compte> comptes 
 	 */
 	public void setComptes(List<Compte> comptes) {
 		this.comptes = comptes;
 	}
-	
-	
-	
-
-	
 
 }
+

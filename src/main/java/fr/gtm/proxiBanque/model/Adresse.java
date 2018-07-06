@@ -149,6 +149,6 @@ public class Adresse implements Entity,Serializable{
 	 */
 	public void setClient(Client client) {
 		this.client = client;
-	}
-	
+	}	
 }
+

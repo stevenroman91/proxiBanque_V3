@@ -4,15 +4,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * 
- * @author Boutra Nadir && Steven Roman 
- *
+ * CLASSE REPRESENTANT UN COMPTE
+ * @author Boutra Nadir && Steven Roman
+ * @version 3.0 
  */
 
 public class Compte implements Entity, Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private Integer id ; 
 	private long numCompte ; 
@@ -24,106 +22,150 @@ public class Compte implements Entity, Serializable {
 	private CarteBleu carteBleu;
 	private String typeCompte;
 	
+	
+	
+	/**
+	 * CONSTRUCTEUR PAR DEFAUT PERMETTANT DE CREER UN OBJECT VIDE DE TYPE Client 
+	 */
+	public Compte() {
+		super();
+		
+	}
+	
+	
+	/**
+	 * CONSTRUCTEUR PERMETTANT DE CREER UN OBJECT DE TYPE Compte
+	 * @param numCompte
+	 * @param libelle
+	 * @param dateOuverture
+	 * @param solde
+	 * @param typeCompte
+	 */
+	public Compte(long numCompte, String libelle, LocalDate dateOuverture, double solde, String typeCompte) {
+		super();
+		this.numCompte = numCompte;
+		this.libelle = libelle;
+		this.dateOuverture = dateOuverture;
+		this.solde = solde;
+		this.typeCompte = typeCompte;
+	}
+
+
+	/**
+	 * @return RETOURNE L'ID DU COMPTE
+	 */
 	@Override
 	public Integer getId() {
 		return this.id;
 	}
+	/**
+	 * EDITE L'ID DU Client
+	 * @param Integer id 
+	 */
 	@Override
 	public void setId(Integer id) {
 		this.id=id;
 	}
 	/**
-	 * @return the numCompte
+	 * @return RETOURNE LE NUMERO DU COMPTE SUR 13 CHIFFRES
 	 */
 	public long getNumCompte() {
 		return numCompte;
 	}
 	/**
-	 * @param numCompte the numCompte to set
+	 * EDITE LE NUMERO DU COMPTE SUR 13 CHIFFRES
+	 * @param Long numCompte 
 	 */
 	public void setNumCompte(long numCompte) {
 		this.numCompte = numCompte;
 	}
 	/**
-	 * @return the libelle
+	 * @return RETOURNE LE LIBELLE DU COMPTE
 	 */
 	public String getLibelle() {
 		return libelle;
 	}
 	/**
-	 * @param libelle the libelle to set
+	 * EDITE LE LIBBELE DU COMPTE
+	 * @param String libelle 
 	 */
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
 	/**
-	 * @return the dateOuverture
+	 * @return RETOURNE LA DATE DOUVERTURE DU COMPTE
 	 */
 	public LocalDate getDateOuverture() {
 		return dateOuverture;
 	}
 	/**
-	 * @param dateOuverture the dateOuverture to set
+	 * EDITE LA DATE DOUVERTURE DU COMPTE
+	 * @param LocalDate dateOuverture 
 	 */
 	public void setDateOuverture(LocalDate dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}
 	/**
-	 * @return the solde
+	 * @return RETOURNE LE SOLDE DU COMPTE
 	 */
 	public double getSolde() {
 		return solde;
 	}
 	/**
-	 * @param solde the solde to set
+	 * EDITE LE SOLDE DU COMPTE
+	 * @param double solde 
 	 */
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
 	/**
-	 * @return the client
+	 * @return RETOURNE LE CLIENT ASSOCIE AU COMPTE
 	 */
 	public Client getClient() {
 		return client;
 	}
 	/**
-	 * @param client the client to set
+	 * EDITE LE CLIENT ASSOCIE AU COMPTE
+	 * @param Client client 
 	 */
 	public void setClient(Client client) {
 		this.client = client;
 	}
 	/**
-	 * @return the chequier
+	 * @return RETOURNE LE CHEQUIER ASSOCIE AU COMPTE
 	 */
 	public Chequier getChequier() {
 		return chequier;
 	}
 	/**
-	 * @param chequier the chequier to set
+	 * EDITE LE CHEQUIER ASSOCIE AU COMPTE
+	 * @param Chequier chequier 
 	 */
 	public void setChequier(Chequier chequier) {
 		this.chequier = chequier;
 	}
 	/**
-	 * @return the carteBleu
+	 * @return RETOURNE LA CARTE BLEU ASSOCIEE AU COMPTE
 	 */
 	public CarteBleu getCarteBleu() {
 		return carteBleu;
 	}
 	/**
-	 * @param carteBleu the carteBleu to set
+	 * EDITE LA CARTE BLEU ASSOCIEE AU COMPTE
+	 * @param CarteBleu carteBleu 
 	 */
 	public void setCarteBleu(CarteBleu carteBleu) {
 		this.carteBleu = carteBleu;
 	}
 	/**
-	 * @return the typeCompte
+	 * @return RETOURNE LE TYPE DE COMPTE ("COMPTE_COURANT" - "COMPTE_EPARGNE")
 	 */
 	public TypeCompte getTypeCompte() {
 		return TypeCompte.valueOf(this.typeCompte);
 	}
 	/**
-	 * @param typeCompte the typeCompte to set
+	 * EDITE LE TYPE DE COMPTE ("COMPTE_COURANT" - "COMPTE_EPARGNE")
+	 * @param TypeCompte typeCompte 
 	 */
 	public void setTypeCompte(TypeCompte typeCompte) {
 		this.typeCompte = typeCompte.name();
