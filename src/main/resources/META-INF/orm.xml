@@ -14,7 +14,7 @@
 
 
 
-	<entity class="fr.gtm.proxiBanque.model.Client">
+	<entity class="fr.gtm.proxibanque.model.Client">
 		<table name="clients" />
 		<attributes>
 			<id name="id">
@@ -34,7 +34,7 @@
 	</entity>
 
 
-	<entity class="fr.gtm.proxiBanque.model.Adresse">
+	<entity class="fr.gtm.proxibanque.model.Adresse">
 
 		<attributes>
 			<id name="id">
@@ -54,7 +54,7 @@
 	</entity>
 
 
-	<entity class="fr.gtm.proxiBanque.model.Compte">
+	<entity class="fr.gtm.proxibanque.model.Compte">
 		<attributes>
 			<id name="id">
 				<generated-value strategy="IDENTITY" />
@@ -79,7 +79,7 @@
 		</attributes>
 	</entity>
 
-	<entity class="fr.gtm.proxiBanque.model.Chequier">
+	<entity class="fr.gtm.proxibanque.model.Chequier">
 
 		<attributes>
 			<id name="id">
@@ -95,7 +95,7 @@
 
 	</entity>
 
-	<entity class="fr.gtm.proxiBanque.model.CarteBleu">
+	<entity class="fr.gtm.proxibanque.model.CarteBleu">
 
 		<attributes>
 			<id name="id">

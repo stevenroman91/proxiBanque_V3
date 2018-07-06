@@ -1,4 +1,4 @@
-package fr.gtm.proxiBanque.presentation;
+package fr.gtm.proxibanque.presentation;
 
 import java.time.LocalDate;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import fr.gtm.proxiBanque.model.Client;
-import fr.gtm.proxiBanque.service.ClientService;
-import fr.gtm.proxiBanque.service.CompteService;
+import fr.gtm.proxibanque.model.Client;
+import fr.gtm.proxibanque.service.ClientService;
+import fr.gtm.proxibanque.service.CompteService;
 
 @Controller
 public class IndexControler {

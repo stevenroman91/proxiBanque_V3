@@ -6,8 +6,8 @@
 
 	<groupId>fr.gtm.project</groupId>
 	<artifactId>proxibanque</artifactId>
-	<packaging>war</packaging>
 	<version>0.0.3</version>
+	<packaging>war</packaging>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

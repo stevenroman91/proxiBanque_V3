@@ -1,7 +1,7 @@
-package fr.gtm.proxiBanque.service;
+package fr.gtm.proxibanque.service;
 
-import fr.gtm.proxiBanque.dao.CarteBleuRepository;
-import fr.gtm.proxiBanque.model.CarteBleu;
+import fr.gtm.proxibanque.dao.CarteBleuRepository;
+import fr.gtm.proxibanque.model.CarteBleu;
 
 public class CarteBleuService extends CrudService<CarteBleu>{
 	

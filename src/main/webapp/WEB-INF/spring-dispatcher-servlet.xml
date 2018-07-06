@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
         
      <mvc:annotation-driven />
-     <context:component-scan base-package="fr.gtm.proxiBanque.service, fr.gtm.proxiBanque.presentation" />
+     <context:component-scan base-package="fr.gtm.proxibanque.service, fr.gtm.proxibanque.presentation" />
      
      <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
@@ -23,13 +23,13 @@
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
 	
-	<bean id="clientService" class="fr.gtm.proxiBanque.service.ClientService" />
-	<bean id="adresseService" class="fr.gtm.proxiBanque.service.AdresseService" />
-	<bean id="carteBleuService" class="fr.gtm.proxiBanque.service.CarteBleuService" />
-	<bean id="chequierService" class="fr.gtm.proxiBanque.service.ChequierService" />
-	<bean id="compteService" class="fr.gtm.proxiBanque.service.CompteService" />
+	<bean id="clientService" class="fr.gtm.proxibanque.service.ClientService" />
+	<bean id="adresseService" class="fr.gtm.proxibanque.service.AdresseService" />
+	<bean id="carteBleuService" class="fr.gtm.proxibanque.service.CarteBleuService" />
+	<bean id="chequierService" class="fr.gtm.proxibanque.service.ChequierService" />
+	<bean id="compteService" class="fr.gtm.proxibanque.service.CompteService" />
 	
-	<bean id="sc" class="fr.gtm.proxiBanque.service.SearchClientComponent" scope="prototype" />
+	<bean id="sc" class="fr.gtm.proxibanque.service.SearchClientComponent" scope="prototype" />
 	
 	
 	<bean id="entityManagerFactory"
@@ -43,7 +43,7 @@
 			ref="entityManagerFactory" />
 	</bean>
 	
-	<jpa:repositories base-package="fr.gtm.proxiBanque.dao" />
+	<jpa:repositories base-package="fr.gtm.proxibanque.dao" />
  
  
  </beans>

@@ -1,9 +1,9 @@
-package fr.gtm.proxiBanque.dao;
+package fr.gtm.proxibanque.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import fr.gtm.proxiBanque.model.CarteBleu;
+import fr.gtm.proxibanque.model.CarteBleu;
 
 /**
  * @author Steven Roman & Nadir Boutra

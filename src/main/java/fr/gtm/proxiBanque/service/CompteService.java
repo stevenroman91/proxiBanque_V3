@@ -1,7 +1,7 @@
-package fr.gtm.proxiBanque.service;
+package fr.gtm.proxibanque.service;
 
-import fr.gtm.proxiBanque.dao.CompteRepository;
-import fr.gtm.proxiBanque.model.Compte;
+import fr.gtm.proxibanque.dao.CompteRepository;
+import fr.gtm.proxibanque.model.Compte;
 
 public class CompteService extends CrudService<Compte> {
 

@@ -5,4 +5,4 @@
  * @author Nadir
  *
  */
-package fr.gtm.proxiBanque.dao;
+package fr.gtm.proxibanque.dao;

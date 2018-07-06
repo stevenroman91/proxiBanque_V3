@@ -1,4 +1,4 @@
-package fr.gtm.proxiBanque.service;
+package fr.gtm.proxibanque.service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.gtm.proxiBanque.dao.ClientRepository;
-import fr.gtm.proxiBanque.model.Client;
+import fr.gtm.proxibanque.dao.ClientRepository;
+import fr.gtm.proxibanque.model.Client;
 
 public class SearchClientComponent {
 
