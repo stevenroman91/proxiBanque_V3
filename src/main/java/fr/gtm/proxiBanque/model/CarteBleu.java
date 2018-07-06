@@ -3,6 +3,12 @@ package fr.gtm.proxibanque.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+
+/**
+ * CLASSE REPRESENTANT UNE CARTE BLEU ASSOCIEE A UNE COMPTE COURANT
+ * @author Boutra Nadir && Steven Roman
+ * @version 3.0 
+ */
 public class CarteBleu implements Entity,Serializable {
 	
 	/**
@@ -15,6 +21,30 @@ public class CarteBleu implements Entity,Serializable {
 	private String type;
 	private Compte compte;
 	
+	
+	
+	/**
+	 * CONSTRUCTEUR PAR DEFAUT PERMETTANT DE CREER UN OBJECT VIDE DE TYPE CarteBleu 
+	 */
+	public CarteBleu() {
+		super();
+		
+	}
+	
+	
+	/**
+	 * @param numCarte
+	 * @param dateExpiration
+	 * @param type
+	 */
+	public CarteBleu(long numCarte, LocalDate dateExpiration, String type) {
+		super();
+		this.numCarte = numCarte;
+		this.dateExpiration = dateExpiration;
+		this.type = type;
+	}
+
+
 	@Override
 	public Integer getId() {
 		return this.id;

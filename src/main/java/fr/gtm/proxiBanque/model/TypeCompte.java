@@ -2,15 +2,9 @@ package fr.gtm.proxibanque.model;
 
 public enum TypeCompte
 {
-    CC("COMPTE COURANT"), CE("COMPTE EPARGNE");
+    COMPTE_COURANT, COMPTE_EPARGNE
 
-    private String typeCompte;
+    
  
-    private TypeCompte(String typeCompte) {
-        this.typeCompte = typeCompte;
-    }
- 
-    public String getTypeCompte() {
-        return this.typeCompte ;
-    }
+
 }

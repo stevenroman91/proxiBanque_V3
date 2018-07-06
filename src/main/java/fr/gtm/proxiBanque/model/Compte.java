@@ -3,6 +3,12 @@ package fr.gtm.proxibanque.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * 
+ * @author Boutra Nadir && Steven Roman 
+ *
+ */
+
 public class Compte implements Entity, Serializable {
 	/**
 	 * 
@@ -113,14 +119,14 @@ public class Compte implements Entity, Serializable {
 	/**
 	 * @return the typeCompte
 	 */
-	public String getTypeCompte() {
-		return typeCompte;
+	public TypeCompte getTypeCompte() {
+		return TypeCompte.valueOf(this.typeCompte);
 	}
 	/**
 	 * @param typeCompte the typeCompte to set
 	 */
-	public void setTypeCompte(String typeCompte) {
-		this.typeCompte = typeCompte;
+	public void setTypeCompte(TypeCompte typeCompte) {
+		this.typeCompte = typeCompte.name();
 	}
 	
 	
