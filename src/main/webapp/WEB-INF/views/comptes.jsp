@@ -48,7 +48,7 @@
 
 		<p>Bienvenue dans votre espace ProxyBanque</p>
 
-		<br>
+
 
 
 
@@ -129,84 +129,121 @@
 
 		</div>
 
+		<div class="container">
+			<c:url value="/comptes.html?id=" var="chemin" />
+			<form action="${chemin}${client.id}" method="post"
+				class="form-inline">
+				<div class="form-group">
+					<label for="idCompteD">Compte à débiter </label> <select
+						class="form-control" name="idCompteD" id="idCompteD">
 
+						<c:forEach var="compte" items="${client.comptes}">
 
-		<br>
+							<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+
+						</c:forEach>
+
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="idCompteC">Compte à créditer </label> <select
+						class="form-control" name="idComptec" id="idCompteC">
+
+						<c:forEach var="compte" items="${client.comptes}">
+
+							<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+
+						</c:forEach>
+
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="montantVirement">Montant (en
+						Euros)</label> <input type="number" class="form-control"
+						id="montantVirement" name="montantVirement" placeholder="montant">
+
+				</div>
+				<div class="form-group">
+					<button name="but" type="submit" class="btn btn-success">
+						Effectuer Virement</button>
+				</div>
+			</form>
+
+		</div>
+
+		<div class="container">
+			<c:url value="/comptes.html?id=" var="chemin" />
+			<form action="${chemin}${client.id}" method="post"
+				class="form-inline">
+				<div class="form-group">
+					<label for="idCompteD">Compte</label> <select class="form-control"
+						name="idCompteD" id="idCompteD">
+
+						<c:forEach var="compte" items="${client.comptes}">
+							<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+
+						</c:forEach>
+
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="type">Type de retrait </label> <select
+						class="form-control" name="type" id="type">
+
+						<option value="valeur1" selected>Espèces</option>
+						<option value="valeur2">Chéquier</option>
+						<option value="valeur3">Carte Bleu</option>
+
+					</select>
+				</div>
+				<div class="form-group">
+					<button name="but" type="submit" class="btn btn-success">
+						Effectuer un retrait</button>
+				</div>
+			</form>
+
+		</div>
 
 	</div>
 
 
-	<br>
-
-	<form action="${chemin}modifier" method="post"
-		class="form-inline form-group container">
-
-		<label for="idCompte">Compte à débiter </label> <select class="form-control"
-			name="idCompte" id="idCompte">
-
-			<c:forEach var="compte" items="${client.comptes}">
-
-				<option value="${compte.id}"><c:out
-						value="${compte.id}" /></option>
-
-			</c:forEach>
-
-		</select>
-		
-		<label for="idCompte">Compte à créditer </label> <select class="form-control"
-			name="idCompte" id="idCompte">
-
-			<c:forEach var="compte" items="${client.comptes}">
-
-				<option value="${compte.id}"><c:out
-						value="${compte.id}" /></option>
-
-			</c:forEach>
-
-		</select>
-
-		<button name="but" type="submit" class="btn btn-success">
-			Modifier profil Client</button>
-
-	</form>
 
 
 
-	<br>
 
 
 
-	<form action="${chemin}consulter" method="post"
-		class="form-inline form-group container">
+	<%-- 	<form action="${chemin}consulter" method="post" --%>
+	<!-- 		class="form-inline form-group container"> -->
 
-		<label for="idClient2">ID Client </label> <select class="form-control"
-			name="idClient" id="idClient2">
+	<!-- 		<label for="idClient2">ID Client </label> <select class="form-control" -->
+	<!-- 			name="idClient" id="idClient2"> -->
 
-			<c:forEach var="client" items="${listeClient}">
+	<%-- 			<c:forEach var="client" items="${listeClient}"> --%>
 
-				<option value="${client.idPersonne}"><c:out
-						value="${client.idPersonne}" /></option>
+	<%-- 				<option value="${client.idPersonne}"><c:out --%>
+	<%-- 						value="${client.idPersonne}" /></option> --%>
 
-			</c:forEach>
+	<%-- 			</c:forEach> --%>
 
-		</select>
+	<!-- 		</select> -->
 
-		<button type="submit" class="btn btn-success">Consulter
-			Compte</button>
+	<!-- 		<button type="submit" class="btn btn-success">Consulter -->
+	<!-- 			Compte</button> -->
 
-	</form>
+	<!-- 	</form> -->
 
 
 
-	<br>
+	<!-- 	<br> -->
 
-	<form action="${chemin}virement" method="get"
-		class="form-inline form-group container">
+	<%-- 	<form action="${chemin}virement" method="get" --%>
+	<!-- 		class="form-inline form-group container"> -->
 
-		<button type="submit" class="btn btn-success">Effectuer
-			Virement</button>
+	<!-- 		<button type="submit" class="btn btn-success">Effectuer -->
+	<!-- 			Virement</button> -->
 
-	</form>
+	<!-- 	</form> -->
 
 
 
