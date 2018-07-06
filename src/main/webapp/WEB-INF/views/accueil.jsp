@@ -23,7 +23,7 @@
 					<label for="login">Nom et/ou Prenom </label>
 					<div class="form-group">
 						<input type="text" class="form-control" id="keywords"
-							name="keywords" placeholder="Conseiller">
+							name="keywords" placeholder="Nom et/ou Prenom">
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-success btn-lg">
@@ -32,11 +32,13 @@
 				</form>
 			</c:when>
 			<c:otherwise>
-				<form action="" method="post" class="form-inline">
+				<c:url value="/authentification.html?id=" var="authentificationUrl" />
+				<form action="${authentificationUrl}${idSearch}" method="post"
+					class="form-inline">
 					<label for="login">Date de naissance </label>
 					<div class="form-group">
 						<input type="text" class="form-control" id="dateDeNaissance"
-							name="dateDeNaissance" placeholder="Conseiller">
+							name="dateDeNaissance" placeholder="Date de naissance">
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-success btn-lg">

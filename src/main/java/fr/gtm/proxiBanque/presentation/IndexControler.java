@@ -1,17 +1,20 @@
 package fr.gtm.proxiBanque.presentation;
 
+import java.time.LocalDate;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.gtm.proxiBanque.model.Client;
 import fr.gtm.proxiBanque.service.ClientService;
 import fr.gtm.proxiBanque.service.CompteService;
-import fr.gtm.proxiBanque.service.SearchClientComponent;
 
 @Controller
 public class IndexControler {
@@ -24,27 +27,56 @@ public class IndexControler {
 	private ClientService clientService;
 
 	@Autowired
-	private CompteService compteCourantService;
+	private CompteService compteService;
 	
-	@GetMapping("/accueil")
+	@GetMapping({"/index","/accueil"})
 	public String accueil() {
 		
 		return "/accueil" ;
 	}
 	
-	@PostMapping("/accueil")
-	public ModelAndView search (@RequestParam("keywords") String recherche) {
+	@GetMapping("/erroraccueil")
+	public String erroraccueil() {
+		
+		return "/erroraccueil" ;
+	}
+	
+	@GetMapping("/authentification")
+	public ModelAndView authentification(@RequestParam("id") Integer id) {
+		ModelAndView mav =new ModelAndView("/accueil");
+		mav.addObject("idSearch", id); 
+		return mav;
+	}
+	
+	@PostMapping("/authentification")
+	public ModelAndView authentificationpost(@RequestParam("id") Integer id, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateDeNaissance) {
 		ModelAndView mav ;
-		Integer id = clientService.searchByNameOrFirstName(recherche); 
-		if (id != null) {
-			mav = new ModelAndView("/test") ;
-			mav.addObject("id", id); 
+		//String reponse;
+		Client c = clientService.searchByBirthDate(dateDeNaissance, id); 
+		if (c != null) {
+			mav= new ModelAndView("/comptes");
+			mav.addObject("client",c);
 		} else {
-			mav = new ModelAndView("/accueil") ;
+			mav= new ModelAndView("/erroraccueil");
 		}
 			
-		return mav ; 
+		return mav; 
 	}
+	
+	@PostMapping({"/index","/accueil","/erroraccueil"})
+	public String search (@RequestParam("keywords") String recherche) {
+		//ModelAndView mav ;
+		String reponse;
+		Integer id = clientService.searchByNameOrFirstName(recherche); 
+		if (id != null) {
+			 reponse="redirect:/authentification.html?id="+id;
+		} else {
+			reponse="redirect:/erroraccueil.html";
+		}
+			
+		return reponse; 
+	}
+	
 	
 	@GetMapping("/test")
 	public String date (@RequestParam ("id") Integer id) {

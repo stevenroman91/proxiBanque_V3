@@ -2,6 +2,7 @@ package fr.gtm.proxiBanque.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client implements Entity,Serializable {
@@ -15,7 +16,7 @@ public class Client implements Entity,Serializable {
 	private String prenom;
 	private LocalDate dateDeNaissance;
 	private Adresse adresse;
-	private List<Compte> comptes;
+	private List<Compte> comptes = new ArrayList<>();
 	
 	//Méthodes de l'interface Entity implémentée pour la classe Client
 	
