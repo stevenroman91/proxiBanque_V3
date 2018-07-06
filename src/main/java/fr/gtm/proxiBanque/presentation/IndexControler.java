@@ -32,21 +32,27 @@ public class IndexControler {
 	@GetMapping({"/index","/accueil"})
 	public String accueil() {
 		
-		return "/accueil" ;
+		return "accueil" ;
 	}
 	
 	@GetMapping("/erroraccueil")
 	public String erroraccueil() {
 		
-		return "/erroraccueil" ;
+		return "erroraccueil" ;
 	}
 	
 	@GetMapping("/authentification")
 	public ModelAndView authentification(@RequestParam("id") Integer id) {
-		ModelAndView mav =new ModelAndView("/accueil");
+		ModelAndView mav =new ModelAndView("accueil");
 		mav.addObject("idSearch", id); 
 		return mav;
 	}
+	
+	@GetMapping("/comptes")
+	public String vuecomptes() {
+		return "comptes";
+	}
+	
 	
 	@PostMapping("/authentification")
 	public ModelAndView authentificationpost(@RequestParam("id") Integer id, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateDeNaissance) {
@@ -54,10 +60,12 @@ public class IndexControler {
 		//String reponse;
 		Client c = clientService.searchByBirthDate(dateDeNaissance, id); 
 		if (c != null) {
-			mav= new ModelAndView("/comptes");
+			mav= new ModelAndView("redirect:/comptes.html");
 			mav.addObject("client",c);
+			//LOGGER.info(c.getNom());
+			//mav.addObject("comptes",c.getComptes());
 		} else {
-			mav= new ModelAndView("/erroraccueil");
+			mav= new ModelAndView("redirect:/erroraccueil.html");
 		}
 			
 		return mav; 

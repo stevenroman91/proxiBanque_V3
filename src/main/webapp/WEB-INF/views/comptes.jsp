@@ -101,7 +101,7 @@
 								
 								<td><c:out value="${compte.id}" /></td>
 								
-								<td><c:out value="${compte.numeroDeCompte}" /></td>
+								<td><c:out value="${compte.numCompte}" /></td>
 
 								<td><c:out value="${compte.libelle}" /></td>
 

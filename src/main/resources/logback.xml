@@ -30,7 +30,7 @@
 	</logger>
 	
 	<logger level="info" name="fr.gtm.proxiBanque.presentation" additivity="false">
-		<appender-ref ref="APPLOG" />
+		<appender-ref ref="STDOUT" />
 		
 	</logger>
 

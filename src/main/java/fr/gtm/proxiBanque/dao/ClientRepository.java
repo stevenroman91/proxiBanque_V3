@@ -23,7 +23,7 @@ public interface ClientRepository extends JpaRepository <Client, Integer> {
 	@Query(value = "SELECT * FROM clients WHERE nom=?1 OR prenom =?1", nativeQuery = true)
 	public List<Client> findClientByPrenomOrNom(String str);
 	@Transactional
-	@Query(value = "SELECT * FROM clients WHERE nom=?1 OR prenom =?2", nativeQuery = true)
+	@Query(value = "SELECT * FROM clients WHERE nom=?1 AND prenom =?2", nativeQuery = true)
 	public List<Client> findClientByNomAndPrenom(String nom, String prenom);
 	
 		

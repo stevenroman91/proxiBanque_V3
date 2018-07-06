@@ -25,11 +25,7 @@
 			<basic name="nom" />
 			<basic name="prenom" />
 			<basic name="dateDeNaissance" />
-
-			<one-to-many name="comptes" mapped-by="client">
-
-			</one-to-many>
-
+			<one-to-many name="comptes" mapped-by="client" fetch="EAGER"/>
 			<one-to-one name="adresse">
 				<join-column name="idAdresse"
 					referenced-column-name="id"></join-column>
@@ -71,7 +67,6 @@
 			<many-to-one name="client">
 				<join-column name="idClient" referenced-column-name="id" />
 			</many-to-one>
-
 			<one-to-one name="chequier">
 				<join-column name="idChequier"
 					referenced-column-name="id" />
