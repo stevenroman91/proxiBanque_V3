@@ -1,11 +1,6 @@
 package fr.gtm.proxibanque.model;
 
-/**
- * 
- * @author Nadir Boutra et Steven Roman
- *
- */
-public class MontantNegatifException extends Exception {
+public class MauvaiseDateException extends Exception{
 	/**
 	 * 
 	 */
@@ -15,8 +10,7 @@ public class MontantNegatifException extends Exception {
 	 * constructeur
 	 * @param message prends le msg en param
 	 */
-
-	public MontantNegatifException(String message) {
+	public MauvaiseDateException(String message) {
 
 		super(message);
 		

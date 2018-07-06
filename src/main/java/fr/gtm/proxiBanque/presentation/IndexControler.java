@@ -77,26 +77,31 @@ public class IndexControler {
 	@PostMapping("/especes")
 	public ModelAndView postespeces(@RequestParam("id") Integer id, @RequestParam("montantVirement") double mt) {
 		ModelAndView mav = new ModelAndView("comptes");
-		compteService.retraitespeces(id,mt);
-		//mav.addObject("client",compteService.read(D).getClient());		
+		String re = compteService.retraitespeces(id,mt);
+		mav.addObject("TT",0);
+		mav.addObject("message",re);
+		mav.addObject("client",compteService.read(id).getClient());		
 		return mav;
 	}
 	
-//	@PostMapping("/chequier")
-//	public ModelAndView postchequier(@RequestParam("idCompteD") Integer D, @RequestParam("idCompteC") Integer C, @RequestParam("montantVirement") double mt) {
-//		ModelAndView mav = new ModelAndView("comptes");
-//		compteService.virement(D,C,mt);
-//		mav.addObject("client",compteService.read(D).getClient());		
-//		return mav;
-//	}
-//	
-//	@PostMapping("/carteblue")
-//	public ModelAndView postcarteblue(@RequestParam("idCompteD") Integer D, @RequestParam("idCompteC") Integer C, @RequestParam("montantVirement") double mt) {
-//		ModelAndView mav = new ModelAndView("comptes");
-//		compteService.virement(D,C,mt);
-//		mav.addObject("client",compteService.read(D).getClient());		
-//		return mav;
-//	}
+	@PostMapping("/chequier")
+	public ModelAndView postchequier(@RequestParam("id") Integer id) {
+		ModelAndView mav = new ModelAndView("comptes");
+		String re = compteService.retraitchequier(id);
+		mav.addObject("TT",1);
+		mav.addObject("message",re);
+		//compteService.virement(D,C,mt);
+		mav.addObject("client",compteService.read(id).getClient());		
+		return mav;
+	}
+	
+	@PostMapping("/carteblue")
+	public ModelAndView postcarteblue(@RequestParam("id") Integer id, @RequestParam("carte") String type) {
+		ModelAndView mav = new ModelAndView("comptes");
+		String carte = (type=="valeur1") ? "Visa electron": "Visa premier";
+		String re = compteService.retraitcarte(id,carte);
+		return mav;
+	}
 	
 	@PostMapping("/virement")
 	public ModelAndView postvirement(@RequestParam("idCompteD") Integer D, @RequestParam("idCompteC") Integer C, @RequestParam("montantVirement") double mt) {

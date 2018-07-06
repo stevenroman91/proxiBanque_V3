@@ -31,7 +31,7 @@
 	
 	<bean id="sc" class="fr.gtm.proxibanque.service.SearchClientComponent" scope="prototype" />
 	<bean id="vc" class="fr.gtm.proxibanque.service.VirementCompteComponent" />
-	
+	<bean id="retraitcomponent" class="fr.gtm.proxibanque.service.RetraitComponent" />
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="proxiBanque" />
