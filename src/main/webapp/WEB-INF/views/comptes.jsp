@@ -46,11 +46,7 @@
 
 		<h2>Application ProxyBanque</h2>
 
-		<p>
-
-			Bienvenue dans votre espace ProxyBanque
-
-		</p>
+		<p>Bienvenue dans votre espace ProxyBanque</p>
 
 		<br>
 
@@ -79,15 +75,20 @@
 						<tr>
 
 							<td>ID</td>
-							
+
 							<td>Numero de compte</td>
+
+							<td>Type de compte</td>
 
 							<td>Libellé</td>
 
 							<td>Date d'ouveture</td>
 
 							<td>Solde</td>
-							
+
+							<td>Chequier</td>
+
+							<td>CarteBleu</td>
 
 						</tr>
 
@@ -98,16 +99,22 @@
 						<c:forEach var="compte" items="${client.comptes}">
 
 							<tr>
-								
+
 								<td><c:out value="${compte.id}" /></td>
-								
+
 								<td><c:out value="${compte.numCompte}" /></td>
+
+								<td><c:out value="${compte.typeCompte}" /></td>
 
 								<td><c:out value="${compte.libelle}" /></td>
 
 								<td><c:out value="${compte.dateOuverture}" /></td>
 
 								<td><c:out value="${compte.solde} Euro" /></td>
+
+								<td><c:out value="${compte.chequier.id}" /></td>
+
+								<td><c:out value="${compte.carteBleu.type}" /></td>
 
 							</tr>
 
@@ -129,7 +136,81 @@
 	</div>
 
 
+	<br>
 
+	<form action="${chemin}modifier" method="post"
+		class="form-inline form-group container">
+
+		<label for="idCompte">Compte à débiter </label> <select class="form-control"
+			name="idCompte" id="idCompte">
+
+			<c:forEach var="compte" items="${client.comptes}">
+
+				<option value="${compte.id}"><c:out
+						value="${compte.id}" /></option>
+
+			</c:forEach>
+
+		</select>
+		
+		<label for="idCompte">Compte à créditer </label> <select class="form-control"
+			name="idCompte" id="idCompte">
+
+			<c:forEach var="compte" items="${client.comptes}">
+
+				<option value="${compte.id}"><c:out
+						value="${compte.id}" /></option>
+
+			</c:forEach>
+
+		</select>
+
+		<button name="but" type="submit" class="btn btn-success">
+			Modifier profil Client</button>
+
+	</form>
+
+
+
+	<br>
+
+
+
+	<form action="${chemin}consulter" method="post"
+		class="form-inline form-group container">
+
+		<label for="idClient2">ID Client </label> <select class="form-control"
+			name="idClient" id="idClient2">
+
+			<c:forEach var="client" items="${listeClient}">
+
+				<option value="${client.idPersonne}"><c:out
+						value="${client.idPersonne}" /></option>
+
+			</c:forEach>
+
+		</select>
+
+		<button type="submit" class="btn btn-success">Consulter
+			Compte</button>
+
+	</form>
+
+
+
+	<br>
+
+	<form action="${chemin}virement" method="get"
+		class="form-inline form-group container">
+
+		<button type="submit" class="btn btn-success">Effectuer
+			Virement</button>
+
+	</form>
+
+
+
+	</div>
 
 
 	<!-- Section 1  -->

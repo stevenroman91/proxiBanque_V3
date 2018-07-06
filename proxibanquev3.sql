@@ -174,26 +174,27 @@ CREATE TABLE `compte` (
   `solde` double NOT NULL,
   `idCarteBleu` int(11) DEFAULT NULL,
   `idChequier` int(11) DEFAULT NULL,
-  `idClient` int(11) DEFAULT NULL
+  `idClient` int(11) DEFAULT NULL,
+  `typeCompte` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`id`, `dateOuverture`, `libelle`, `numCompte`, `solde`, `idCarteBleu`, `idChequier`, `idClient`) VALUES
-(1, '2014-02-01', 'particulier', 2000123456123, 1000, 1, 1, 1),
-(2, '2014-06-02', 'professionnel', 1500147852369, 750, 2, 14, 1),
-(3, '2014-04-03', 'particulier', 1500987456321, 150, 3, 13, 2),
-(4, '2014-03-04', 'professionnel', 2000159874236, 860, 4, 12, 3),
-(5, '2014-09-05', 'professionnel', 1500153269854, 786, 5, 11, 4),
-(6, '2014-11-06', 'particulier', 1000917456321, 400, 6, 10, 5),
-(7, '2014-05-07', 'particulier', 2000111235666, 900, 14, 9, 6),
-(8, '2014-10-08', 'professionnel', 1000999865532, 700, 13, 8, 7),
-(9, '2014-12-09', 'professionnel', 1000789546353, 680, 12, 7, 8),
-(10, '2014-02-10', 'particulier', 2000114477852, 290, 11, 6, 9),
-(11, '2014-07-11', 'professionnel', 1000963963123, 740, 10, 5, 10),
-(12, '2014-09-13', 'particulier', 1500951357852, 999, 9, 4, 12);
+INSERT INTO `compte` (`id`, `dateOuverture`, `libelle`, `numCompte`, `solde`, `idCarteBleu`, `idChequier`, `idClient`,`typeCompte`) VALUES
+(1, '2014-02-01', 'particulier', 2000123456123, 1000, 1, 1, 1,'COMPTE_COURANT'),
+(2, '2014-06-02', 'professionnel', 1500147852369, 750, null, 14, 1,'COMPTE_EPARGNE'),
+(3, '2014-04-03', 'particulier', 1500987456321, 150, null, 13, 1,'COMPTE_EPARGNE'),
+(4, '2014-03-04', 'professionnel', 2000159874236, 860, 4, 12, 3,'COMPTE_COURANT'),
+(5, '2014-09-05', 'professionnel', 1500153269854, 786, 5, 11, 4,'COMPTE_COURANT'),
+(6, '2014-11-06', 'particulier', 1000917456321, 400, 6, 10, 5,'COMPTE_COURANT'),
+(7, '2014-05-07', 'particulier', 2000111235666, 900, 14, 9, 6,'COMPTE_COURANT'),
+(8, '2014-10-08', 'professionnel', 1000999865532, 700, 13, 8, 7,'COMPTE_COURANT'),
+(9, '2014-12-09', 'professionnel', 1000789546353, 680, 12, 7, 8,'COMPTE_COURANT'),
+(10, '2014-02-10', 'particulier', 2000114477852, 290, 11, 6, 9,'COMPTE_COURANT'),
+(11, '2014-07-11', 'professionnel', 1000963963123, 740, 10, 5, 10,'COMPTE_COURANT'),
+(12, '2014-09-13', 'particulier', 1500951357852, 999, 9, 4, 12,'COMPTE_COURANT');
 
 --
 -- Index pour les tables déchargées

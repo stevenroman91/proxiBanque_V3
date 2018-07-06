@@ -16,6 +16,7 @@ public class Compte implements Entity, Serializable {
 	private Client client;
 	private Chequier chequier;
 	private CarteBleu carteBleu;
+	private String typeCompte;
 	
 	@Override
 	public Integer getId() {
@@ -108,6 +109,18 @@ public class Compte implements Entity, Serializable {
 	 */
 	public void setCarteBleu(CarteBleu carteBleu) {
 		this.carteBleu = carteBleu;
+	}
+	/**
+	 * @return the typeCompte
+	 */
+	public String getTypeCompte() {
+		return typeCompte;
+	}
+	/**
+	 * @param typeCompte the typeCompte to set
+	 */
+	public void setTypeCompte(String typeCompte) {
+		this.typeCompte = typeCompte;
 	}
 	
 	

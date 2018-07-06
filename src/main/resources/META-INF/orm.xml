@@ -63,7 +63,7 @@
 			<basic name="dateOuverture" />
 			<basic name="libelle" />
 			<basic name="solde" />
-
+			<basic name="typeCompte" />
 			<many-to-one name="client">
 				<join-column name="idClient" referenced-column-name="id" />
 			</many-to-one>
