@@ -25,15 +25,24 @@
 	</appender>
 
 
-	<logger level="debug" name="fr.gtm.proxibanque.presentation" additivity="false">
+	<logger level="debug" name="fr.gtm.proxibanque.presentation"
+		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
-	
 
-	<logger level="info" name="fr.gtm.proxibanque.presentation" additivity="false">
+
+	<logger level="info" name="fr.gtm.proxibanque.presentation"
+		additivity="false">
 
 		<appender-ref ref="APPLOG" />
-		
+
+	</logger>
+
+	<logger level="info" name="fr.gtm.proxibanque.service"
+		additivity="false">
+
+		<appender-ref ref="APPLOG" />
+
 	</logger>
 
 	<logger level="debug" name="org.springframework.web"

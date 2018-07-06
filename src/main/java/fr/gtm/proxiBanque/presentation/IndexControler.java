@@ -54,14 +54,12 @@ public class IndexControler {
 		LOGGER.info("---------------------JE SUIS PASSE DANS COMPTES\n");
 		ModelAndView mav = new ModelAndView("comptes");
 		mav.addObject("client",clientService.read(id));
+		mav.addObject("tydeAction",0);
 		return mav;
 	}
 	
 	@GetMapping("/virement")
 	public ModelAndView vuevirement(@RequestParam("id") Integer id) {
-//		ModelAndView mav = new ModelAndView("redirect:/comptes.html?id="+clientService.read(id).getId());
-//		mav.addObject("client",clientService.read(id));
-//		mav.addObject("tydeAction",1);
 		ModelAndView mav = new ModelAndView("comptes");
 		mav.addObject("client",clientService.read(id));
 		mav.addObject("tydeAction",1);
@@ -70,15 +68,67 @@ public class IndexControler {
 	
 	@GetMapping("/retrait")
 	public ModelAndView vueretrait(@RequestParam("id") Integer id) {
-//		ModelAndView mav = new ModelAndView("redirect:/comptes.html?id="+clientService.read(id).getId());
-//		mav.addObject("client",clientService.read(id));
-//		mav.addObject("tydeAction",-1);
 		ModelAndView mav = new ModelAndView("comptes");
 		mav.addObject("client",clientService.read(id));
 		mav.addObject("tydeAction",-1);
 		return mav;
 	}
 	
+	@PostMapping("/especes")
+	public ModelAndView postespeces(@RequestParam("id") Integer id, @RequestParam("montantVirement") double mt) {
+		ModelAndView mav = new ModelAndView("comptes");
+		compteService.retraitespeces(id,mt);
+		//mav.addObject("client",compteService.read(D).getClient());		
+		return mav;
+	}
+	
+//	@PostMapping("/chequier")
+//	public ModelAndView postchequier(@RequestParam("idCompteD") Integer D, @RequestParam("idCompteC") Integer C, @RequestParam("montantVirement") double mt) {
+//		ModelAndView mav = new ModelAndView("comptes");
+//		compteService.virement(D,C,mt);
+//		mav.addObject("client",compteService.read(D).getClient());		
+//		return mav;
+//	}
+//	
+//	@PostMapping("/carteblue")
+//	public ModelAndView postcarteblue(@RequestParam("idCompteD") Integer D, @RequestParam("idCompteC") Integer C, @RequestParam("montantVirement") double mt) {
+//		ModelAndView mav = new ModelAndView("comptes");
+//		compteService.virement(D,C,mt);
+//		mav.addObject("client",compteService.read(D).getClient());		
+//		return mav;
+//	}
+	
+	@PostMapping("/virement")
+	public ModelAndView postvirement(@RequestParam("idCompteD") Integer D, @RequestParam("idCompteC") Integer C, @RequestParam("montantVirement") double mt) {
+		ModelAndView mav = new ModelAndView("comptes");
+//		mav.addObject("client",clientService.read(id));
+//		mav.addObject("tydeAction",1);
+		compteService.virement(D,C,mt);
+		mav.addObject("client",compteService.read(D).getClient());		
+		return mav;
+	}
+	
+	@PostMapping("/retrait")
+	public ModelAndView postretrait(@RequestParam("id") Integer id, @RequestParam("type") String type) {
+		ModelAndView mav = new ModelAndView("comptes");
+		mav.addObject("client",clientService.read(id));
+		LOGGER.info("Le type est " +type);
+		switch (type) {
+		case "valeur1":
+			mav.addObject("TT",0);
+			break;
+		case "valeur2":
+			mav.addObject("TT",1);
+			break;	
+		case "valeur3":
+			mav.addObject("TT",-1);
+			break;
+		}
+		
+		//compteService.virement(D,C,mt);
+		//mav.addObject("client",compteService.read(D).getClient());		
+		return mav;
+	}
 	
 	@PostMapping({"/comptes"})
 	public ModelAndView comptes(@RequestParam("id") Integer id) {
@@ -91,12 +141,9 @@ public class IndexControler {
 	@PostMapping("/authentification")
 	public ModelAndView authentificationpost(@RequestParam("id") Integer id, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateDeNaissance) {
 		ModelAndView mav ;
-		//String reponse;
 		Client c = clientService.searchByBirthDate(dateDeNaissance, id); 
 		if (c != null) {
 			mav= new ModelAndView("redirect:/comptes.html?id="+c.getId());
-			//LOGGER.info(c.getNom());
-			//mav.addObject("comptes",c.getComptes());
 		} else {
 			mav= new ModelAndView("redirect:/erroraccueil.html");
 		}
@@ -106,7 +153,6 @@ public class IndexControler {
 	
 	@PostMapping({"/index","/accueil","/erroraccueil"})
 	public String search (@RequestParam("keywords") String recherche) {
-		//ModelAndView mav ;
 		String reponse;
 		Integer id = clientService.searchByNameOrFirstName(recherche); 
 		if (id != null) {
@@ -125,32 +171,5 @@ public class IndexControler {
 		return "/test" ;
 	}
 
-//	@RequestMapping("/index")
-//	public ModelAndView vueIndex() {
-//		ModelAndView mav = new ModelAndView("index");
-//		mav.addObject("listeClient", clientService.getList());
-//		return mav;
-//	}
-
-//	@PostMapping("/index")
-//	public String essai(@RequestParam("idClient") Integer id) {
-//		ModelAndView mav = new ModelAndView("modifier");
-//		mav.addObject("client", clientService.read(id));
-//		return "redirect:/modifier.html?id="+id;
-//	}
-
-//	@RequestMapping("/modifier")
-//	public ModelAndView vueModifier(@RequestParam("id") Integer id) {
-//		final ModelAndView mav = new ModelAndView("modifier");
-//		mav.getModel().put("modelClient", clientService.read(id));
-//		return mav;
-//	}
-//
-//	 @PostMapping("/modifier")
-//	 public String modifier(@ModelAttribute Client modelClient) {
-//	 LOGGER.info("Je suis rentré par le post");
-//	 clientService.edit(modelClient);
-//	 return "redirect:/index.html";
-//	 }
 
 }

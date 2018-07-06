@@ -207,14 +207,14 @@
 
 		<!-- 	</div> -->
 		<c:choose>
-			<c:when test="${empty tydeAction}">
+			<c:when test="${tydeAction==0}">
 				<div class="container">
 					<c:url value="/virement.html?id=" var="chemin1" />
 					<form action="${chemin1}${client.id}" method="get"
 						class="form-inline">
 						<div class="form-group">
-							<button name="id" value="${client.id}" type="submit" class="btn btn-success">
-								Effectuer un virement</button>
+							<button name="id" value="${client.id}" type="submit"
+								class="btn btn-success">Effectuer un virement</button>
 						</div>
 
 					</form>
@@ -222,11 +222,11 @@
 
 				<div class="container">
 					<c:url value="/retrait.html?id=" var="chemin2" />
-					<form action="${chemin2}${client.id}" method="post"
+					<form action="${chemin2}${client.id}" method="get"
 						class="form-inline">
 						<div class="form-group">
-							<button name="id" type="submit" class="btn btn-success">
-								Effectuer un retrait</button>
+							<button name="id" value="${client.id}" type="submit"
+								class="btn btn-success">Effectuer un retrait</button>
 						</div>
 
 					</form>
@@ -251,7 +251,7 @@
 						</div>
 						<div class="form-group">
 							<label for="idCompteC">Compte à créditer </label> <select
-								class="form-control" name="idComptec" id="idCompteC">
+								class="form-control" name="idCompteC" id="idCompteC">
 
 								<c:forEach var="compte" items="${client.comptes}">
 
@@ -279,27 +279,15 @@
 			</c:when>
 			<c:when test="${tydeAction==-1}">
 				<div class="container">
-					<c:url value="/comptes.html?id=" var="chemin" />
+					<c:url value="/retrait.html?id=" var="chemin" />
 					<form action="${chemin}${client.id}" method="post"
 						class="form-inline">
-						<div class="form-group">
-							<label for="idCompteD">Compte</label> <select
-								class="form-control" name="idCompteD" id="idCompteD">
-
-								<c:forEach var="compte" items="${client.comptes}">
-									<option value="${compte.id}"><c:out
-											value="${compte.id}" /></option>
-
-								</c:forEach>
-
-							</select>
-						</div>
 						<div class="form-group">
 							<label for="type">Type de retrait </label> <select
 								class="form-control" name="type" id="type">
 
-								<option value="valeur1" selected>Espèces</option>
-								<option value="valeur2">Chéquier</option>
+								<option value="valeur1" selected>Especes</option>
+								<option value="valeur2">Chequier</option>
 								<option value="valeur3">Carte Bleu</option>
 
 							</select>
@@ -308,6 +296,88 @@
 							<button name="but" type="submit" class="btn btn-success">
 								Effectuer un retrait</button>
 						</div>
+					</form>
+
+				</div>
+			</c:when>
+			<c:when test="${TT==0}">
+				<div class="container">
+					<c:url value="/especes.html?id=" var="chemin" />
+					<form action="${chemin}${client.id}" method="post"
+						class="form-inline">
+						<div class="form-group">
+							<label for="id">Compte</label> <select
+								class="form-control" name="id" id="id">
+
+								<c:forEach var="compte" items="${client.comptes}">
+									<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+
+								</c:forEach>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="montantVirement">Montant (en
+								Euros)</label> <input type="number" class="form-control"
+								id="montantVirement" name="montantVirement"
+								placeholder="montant">
+
+						</div>
+						<div class="form-group">
+							<button name="but" type="submit" class="btn btn-success">
+								Effectuer retrait d'espèces</button>
+						</div>
+						
+					</form>
+
+				</div>
+			</c:when>
+			<c:when test="${TT==1}">
+				<div class="container">
+					<c:url value="/chequier.html?id=" var="chemin" />
+					<form action="${chemin}${client.id}" method="post"
+						class="form-inline">
+						<div class="form-group">
+							<label for="idCompteD">Compte</label> <select
+								class="form-control" name="id" id="id">
+
+								<c:forEach var="compte" items="${client.comptes}">
+									<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+
+								</c:forEach>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<button name="but" type="submit" class="btn btn-success">
+								Retirer un chequier</button>
+						</div>
+						
+					</form>
+
+				</div>
+			</c:when>
+			<c:when test="${TT==-1}">
+				<div class="container">
+					<c:url value="/carteblue.html?id=" var="chemin" />
+					<form action="${chemin}${client.id}" method="post"
+						class="form-inline">
+						<div class="form-group">
+							<label for="idCompteD">Compte</label> <select
+								class="form-control" name="id" id="id">
+
+								<c:forEach var="compte" items="${client.comptes}">
+									<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+
+								</c:forEach>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<button name="but" type="submit" class="btn btn-success">
+								Retirer carte bleu</button>
+						</div>
+						
 					</form>
 
 				</div>
