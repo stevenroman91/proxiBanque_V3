@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import fr.gtm.proxibanque.model.Entity;
-
+/**
+ * @author Steven Roman & Nadir Boutra
+ * @version 3.0
+ */
 public abstract class CrudService<ENTITY extends Entity> {
 
 	

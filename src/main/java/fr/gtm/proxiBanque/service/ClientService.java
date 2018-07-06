@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.gtm.proxibanque.dao.ClientRepository;
 import fr.gtm.proxibanque.model.Client;
-
+/**
+ * @author Steven Roman & Nadir Boutra
+ * @version 3.0
+ */
 public class ClientService extends CrudService<Client> {
 
 	@Autowired

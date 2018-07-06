@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 /**
  * CLASSE REPRESENTANT UN COMPTE
- * @author Boutra Nadir && Steven Roman
+ * @author Boutra Nadir and Steven Roman
  * @version 3.0 
  */
 
@@ -35,11 +35,11 @@ public class Compte implements Entity, Serializable {
 	
 	/**
 	 * CONSTRUCTEUR PERMETTANT DE CREER UN OBJECT DE TYPE Compte
-	 * @param numCompte
-	 * @param libelle
-	 * @param dateOuverture
-	 * @param solde
-	 * @param typeCompte
+	 * @param numCompte numero de compte
+	 * @param libelle au choix
+	 * @param dateOuverture la date d'ouverture du compte
+	 * @param solde solde du compte
+	 * @param typeCompte epargne ou courant
 	 */
 	public Compte(long numCompte, String libelle, LocalDate dateOuverture, double solde, String typeCompte) {
 		super();
@@ -60,7 +60,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE L'ID DU Client
-	 * @param Integer id 
+	 * @param id de type Integer 
 	 */
 	@Override
 	public void setId(Integer id) {
@@ -74,7 +74,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LE NUMERO DU COMPTE SUR 13 CHIFFRES
-	 * @param Long numCompte 
+	 * @param numCompte de type Long 
 	 */
 	public void setNumCompte(long numCompte) {
 		this.numCompte = numCompte;
@@ -87,7 +87,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LE LIBBELE DU COMPTE
-	 * @param String libelle 
+	 * @param libelle de type String 
 	 */
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
@@ -100,7 +100,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LA DATE DOUVERTURE DU COMPTE
-	 * @param LocalDate dateOuverture 
+	 * @param dateOuverture de type LocalDate 
 	 */
 	public void setDateOuverture(LocalDate dateOuverture) {
 		this.dateOuverture = dateOuverture;
@@ -113,7 +113,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LE SOLDE DU COMPTE
-	 * @param double solde 
+	 * @param solde de type double  
 	 */
 	public void setSolde(double solde) {
 		this.solde = solde;
@@ -126,7 +126,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LE CLIENT ASSOCIE AU COMPTE
-	 * @param Client client 
+	 * @param client  de type Client 
 	 */
 	public void setClient(Client client) {
 		this.client = client;
@@ -139,7 +139,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LE CHEQUIER ASSOCIE AU COMPTE
-	 * @param Chequier chequier 
+	 * @param chequier de type Chequier 
 	 */
 	public void setChequier(Chequier chequier) {
 		this.chequier = chequier;
@@ -152,7 +152,7 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LA CARTE BLEU ASSOCIEE AU COMPTE
-	 * @param CarteBleu carteBleu 
+	 * @param carteBleu de type CarteBleu 
 	 */
 	public void setCarteBleu(CarteBleu carteBleu) {
 		this.carteBleu = carteBleu;
@@ -165,16 +165,11 @@ public class Compte implements Entity, Serializable {
 	}
 	/**
 	 * EDITE LE TYPE DE COMPTE ("COMPTE_COURANT" - "COMPTE_EPARGNE")
-	 * @param TypeCompte typeCompte 
+	 * @param typeCompte de type TypeCompte 
 	 */
 	public void setTypeCompte(TypeCompte typeCompte) {
 		this.typeCompte = typeCompte.name();
 	}
-	
-	
-	
-
-	
 	
 
 }

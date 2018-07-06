@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 /**
  * CLASSE REPRESENTANT UNE CARTE BLEU ASSOCIEE A UN COMPTE COURANT
- * @author Boutra Nadir && Steven Roman
+ * @author Boutra Nadir and Steven Roman
  * @version 3.0 
  */
 public class CarteBleu implements Entity,Serializable {

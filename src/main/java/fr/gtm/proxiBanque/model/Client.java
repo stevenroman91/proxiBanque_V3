@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * CLASSE REPRESENTANT UN CLIENT
- * @author Boutra Nadir && Steven Roman
+ * @author Boutra Nadira and Steven Roman
  * @version 3.0 
  */
 
@@ -56,7 +56,7 @@ public class Client implements Entity,Serializable {
 	}
 	/**
 	 * EDITE L'ID DU Client
-	 * @param Integer id 
+	 * @param id de type Integer
 	 */
 	@Override
 	public void setId(Integer id) {
@@ -71,7 +71,7 @@ public class Client implements Entity,Serializable {
 	}
 	/**
 	 * EDITE LE NUMERO DU CLIENT
-	 * @param int numClient 
+	 * @param numClient de type int 
 	 */
 	public void setNumClient(int numClient) {
 		this.numClient = numClient;

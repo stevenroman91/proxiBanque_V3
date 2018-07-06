@@ -8,6 +8,7 @@ package fr.gtm.proxibanque.model;
 public class MauvaisMontantException extends Exception {
 	/**
 	 * 
+	 *  cnst necesaire pour que la Classe soit Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 

@@ -1,7 +1,6 @@
 package fr.gtm.proxibanque.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.gtm.proxibanque.dao.CompteRepository;
 import fr.gtm.proxibanque.model.Compte;
@@ -9,7 +8,10 @@ import fr.gtm.proxibanque.model.MauvaisCompteException;
 import fr.gtm.proxibanque.model.MauvaisMontantException;
 import fr.gtm.proxibanque.model.MauvaiseDateException;
 import fr.gtm.proxibanque.model.SoldeInsuffisantException;
-
+/**
+ * @author Steven Roman & Nadir Boutra
+ * @version 3.0
+ */
 public class CompteService extends CrudService<Compte> {
 
 	@Autowired
@@ -18,60 +20,85 @@ public class CompteService extends CrudService<Compte> {
 	@Autowired
 	private RetraitComponent retraitcomponent;
 
+	/**
+	 * 
+	 * @return repository de comptes
+	 */
 	public CompteRepository getRepo() {
 		return (CompteRepository) this.repo;
 	}
 
-	public void virement(Integer idD, Integer idC, double mt) {
+	/**
+	 * 
+	 * @param idD compte a debiter
+	 * @param idC compte a crediter
+	 * @param mt montant a transferer
+	 * @return str
+	 */
+	public String virement(Integer idD, Integer idC, double mt) {
+		String rep ="";
 		try {
 			vc.virement(this.read(idD), this.read(idC), mt);
 		} catch (SoldeInsuffisantException | MauvaisMontantException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rep = e.getMessage();
 		}
+		return rep;
 	}
 
-	public String retraitespeces(Integer id, double mt) {
+	/**
+	 * 
+	 * @param id identifiant du compte
+	 * @param mt montant a transferer
+	 * @return str
+	 */
+	public String retraitEspeces(Integer id, double mt) {
 		
 		String rep ="";
 		
 		try {
-			retraitcomponent.retraitespeces(this.read(id), mt);
+			retraitcomponent.retraitEspeces(this.read(id), mt);
 		} catch (MauvaisCompteException e) {
-			// TODO Auto-generated catch block
-			//rep="Vous ne pouvez pas retirer d'espèces sur un compte epargne";
-			e.printStackTrace();
-			e.getMessage();
+			rep=e.getMessage();
 		} catch (MauvaisMontantException e) {
-			// TODO Auto-generated catch block
-			//rep="Vous ne pouvez pas retirer un montant supérieur à 300";
-			e.printStackTrace();
-			e.getMessage();
+			rep=e.getMessage();
 		} catch (SoldeInsuffisantException e) {
-			// TODO Auto-generated catch block
-			//rep="solde insuffisant";
-			e.printStackTrace();
-			e.getMessage();
+			rep=e.getMessage();
 		}
 		
 		return rep;
 
 	}
 	
-	
-	public String retraitchequier(Integer id) {
-		String rep ="";
+	/**
+	 * 
+	 * @param id identifiant du chequier
+	 * @return str
+	 */
+	public String retraitChequier(Integer id) {
+		String rep =null;
 		try {
-			retraitcomponent.retraitchequier(this.read(id));
+			retraitcomponent.retraitChequier(this.read(id));
 		} catch (MauvaiseDateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			rep = e.getMessage();
 		}
 		return rep;
 	}
 	
-	public String retraitcarte(Integer id, String carte) {
-		retraitcomponent.retraitcarte(this.read(id), carte);
+	/**
+	 * 
+	 * @param id identifiant de la carte
+	 * @param carte type de carte
+	 * @return str
+	 */
+	public String retraitCarte(Integer id, String carte) {
+		String rep =null;
+		try {
+			retraitcomponent.retraitCarte(this.read(id), carte);
+		} catch (MauvaisCompteException e) {
+			rep = e.getMessage();
+		} catch (MauvaiseDateException e) {
+			rep = e.getMessage();
+		}
+		return rep;
 	}
 }

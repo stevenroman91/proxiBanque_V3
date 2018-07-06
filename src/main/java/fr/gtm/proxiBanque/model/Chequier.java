@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 /**
  * CLASSE REPRESENTANT UN CHEQUIER
- * @author Boutra Nadir && Steven Roman
+ * @author Boutra Nadir and Steven Roman
  * @version 3.0 
  */
 

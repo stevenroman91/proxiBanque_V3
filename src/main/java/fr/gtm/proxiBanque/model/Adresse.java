@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * CLASSE REPRESENTANT UNE ADRESSE GEOGRAPHIQUE
- * @author Boutra Nadir && Steven Roman
+ * @author Boutra Nadir and Steven Roman
  * @version 3.0 
  */
 public class Adresse implements Entity,Serializable{
