@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,125 +130,192 @@
 
 		</div>
 
-		<div class="container">
-			<c:url value="/comptes.html?id=" var="chemin" />
-			<form action="${chemin}${client.id}" method="post"
-				class="form-inline">
-				<div class="form-group">
-					<label for="idCompteD">Compte à débiter </label> <select
-						class="form-control" name="idCompteD" id="idCompteD">
+		<!-- 		<div class="container"> -->
+		<%-- 			<c:url value="/comptes.html?id=" var="chemin" /> --%>
+		<%-- 			<form modelAttribute="resultat" method="post" --%>
+		<%-- 				class="form-inline"> --%>
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<label for="idCompteD">Compte à débiter </label> <select -->
+		<!-- 						class="form-control" name="idCompteD" id="idCompteD"> -->
 
-						<c:forEach var="compte" items="${client.comptes}">
+		<%-- 						<c:forEach var="compte" items="${client.comptes}"> --%>
 
-							<option value="${compte.id}"><c:out value="${compte.id}" /></option>
+		<%-- 							<option value="${compte.id}"><c:out value="${compte.id}" /></option> --%>
 
-						</c:forEach>
+		<%-- 						</c:forEach> --%>
 
-					</select>
+		<!-- 					</select> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<label for="idCompteC">Compte à créditer </label> <select -->
+		<!-- 						class="form-control" name="idComptec" id="idCompteC"> -->
+
+		<%-- 						<c:forEach var="compte" items="${client.comptes}"> --%>
+
+		<%-- 							<option value="${compte.id}"><c:out value="${compte.id}" /></option> --%>
+
+		<%-- 						</c:forEach> --%>
+
+		<!-- 					</select> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<label class="sr-only" for="montantVirement">Montant (en -->
+		<!-- 						Euros)</label> <input type="number" class="form-control" -->
+		<!-- 						id="montantVirement" name="montantVirement" placeholder="montant"> -->
+
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<button name="but" type="submit" class="btn btn-success"> -->
+		<!-- 						Effectuer Virement</button> -->
+		<!-- 				</div> -->
+		<%-- 			</form> --%>
+
+		<!-- 		</div> -->
+
+		<!-- 		<div class="container"> -->
+		<%-- 			<c:url value="/comptes.html?id=" var="chemin" /> --%>
+		<%-- 			<form action="${chemin}${client.id}" method="post" --%>
+		<%-- 				class="form-inline"> --%>
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<label for="idCompteD">Compte</label> <select class="form-control" -->
+		<!-- 						name="idCompteD" id="idCompteD"> -->
+
+		<%-- 						<c:forEach var="compte" items="${client.comptes}"> --%>
+		<%-- 							<option value="${compte.id}"><c:out value="${compte.id}" /></option> --%>
+
+		<%-- 						</c:forEach> --%>
+
+		<!-- 					</select> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<label for="type">Type de retrait </label> <select -->
+		<!-- 						class="form-control" name="type" id="type"> -->
+
+		<!-- 						<option value="valeur1" selected>Espèces</option> -->
+		<!-- 						<option value="valeur2">Chéquier</option> -->
+		<!-- 						<option value="valeur3">Carte Bleu</option> -->
+
+		<!-- 					</select> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group"> -->
+		<!-- 					<button name="but" type="submit" class="btn btn-success"> -->
+		<!-- 						Effectuer un retrait</button> -->
+		<!-- 				</div> -->
+		<%-- 			</form> --%>
+
+		<!-- 		</div> -->
+
+		<!-- 	</div> -->
+		<c:choose>
+			<c:when test="${empty tydeAction}">
+				<div class="container">
+					<c:url value="/virement.html?id=" var="chemin1" />
+					<form action="${chemin1}${client.id}" method="get"
+						class="form-inline">
+						<div class="form-group">
+							<button name="id" value="${client.id}" type="submit" class="btn btn-success">
+								Effectuer un virement</button>
+						</div>
+
+					</form>
 				</div>
-				<div class="form-group">
-					<label for="idCompteC">Compte à créditer </label> <select
-						class="form-control" name="idComptec" id="idCompteC">
 
-						<c:forEach var="compte" items="${client.comptes}">
+				<div class="container">
+					<c:url value="/retrait.html?id=" var="chemin2" />
+					<form action="${chemin2}${client.id}" method="post"
+						class="form-inline">
+						<div class="form-group">
+							<button name="id" type="submit" class="btn btn-success">
+								Effectuer un retrait</button>
+						</div>
 
-							<option value="${compte.id}"><c:out value="${compte.id}" /></option>
-
-						</c:forEach>
-
-					</select>
+					</form>
 				</div>
-				<div class="form-group">
-					<label class="sr-only" for="montantVirement">Montant (en
-						Euros)</label> <input type="number" class="form-control"
-						id="montantVirement" name="montantVirement" placeholder="montant">
+			</c:when>
+			<c:when test="${tydeAction==1}">
+				<div class="container">
+					<c:url value="/comptes.html?id=" var="chemin" />
+					<form method="post" class="form-inline">
+						<div class="form-group">
+							<label for="idCompteD">Compte à débiter </label> <select
+								class="form-control" name="idCompteD" id="idCompteD">
+
+								<c:forEach var="compte" items="${client.comptes}">
+
+									<option value="${compte.id}"><c:out
+											value="${compte.id}" /></option>
+
+								</c:forEach>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idCompteC">Compte à créditer </label> <select
+								class="form-control" name="idComptec" id="idCompteC">
+
+								<c:forEach var="compte" items="${client.comptes}">
+
+									<option value="${compte.id}"><c:out
+											value="${compte.id}" /></option>
+
+								</c:forEach>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="montantVirement">Montant (en
+								Euros)</label> <input type="number" class="form-control"
+								id="montantVirement" name="montantVirement"
+								placeholder="montant">
+
+						</div>
+						<div class="form-group">
+							<button name="but" type="submit" class="btn btn-success">
+								Effectuer Virement</button>
+						</div>
+					</form>
 
 				</div>
-				<div class="form-group">
-					<button name="but" type="submit" class="btn btn-success">
-						Effectuer Virement</button>
+			</c:when>
+			<c:when test="${tydeAction==-1}">
+				<div class="container">
+					<c:url value="/comptes.html?id=" var="chemin" />
+					<form action="${chemin}${client.id}" method="post"
+						class="form-inline">
+						<div class="form-group">
+							<label for="idCompteD">Compte</label> <select
+								class="form-control" name="idCompteD" id="idCompteD">
+
+								<c:forEach var="compte" items="${client.comptes}">
+									<option value="${compte.id}"><c:out
+											value="${compte.id}" /></option>
+
+								</c:forEach>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="type">Type de retrait </label> <select
+								class="form-control" name="type" id="type">
+
+								<option value="valeur1" selected>Espèces</option>
+								<option value="valeur2">Chéquier</option>
+								<option value="valeur3">Carte Bleu</option>
+
+							</select>
+						</div>
+						<div class="form-group">
+							<button name="but" type="submit" class="btn btn-success">
+								Effectuer un retrait</button>
+						</div>
+					</form>
+
 				</div>
-			</form>
-
-		</div>
-
-		<div class="container">
-			<c:url value="/comptes.html?id=" var="chemin" />
-			<form action="${chemin}${client.id}" method="post"
-				class="form-inline">
-				<div class="form-group">
-					<label for="idCompteD">Compte</label> <select class="form-control"
-						name="idCompteD" id="idCompteD">
-
-						<c:forEach var="compte" items="${client.comptes}">
-							<option value="${compte.id}"><c:out value="${compte.id}" /></option>
-
-						</c:forEach>
-
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="type">Type de retrait </label> <select
-						class="form-control" name="type" id="type">
-
-						<option value="valeur1" selected>Espèces</option>
-						<option value="valeur2">Chéquier</option>
-						<option value="valeur3">Carte Bleu</option>
-
-					</select>
-				</div>
-				<div class="form-group">
-					<button name="but" type="submit" class="btn btn-success">
-						Effectuer un retrait</button>
-				</div>
-			</form>
-
-		</div>
+			</c:when>
+		</c:choose>
 
 	</div>
 
-
-
-
-
-
-
-
-	<%-- 	<form action="${chemin}consulter" method="post" --%>
-	<!-- 		class="form-inline form-group container"> -->
-
-	<!-- 		<label for="idClient2">ID Client </label> <select class="form-control" -->
-	<!-- 			name="idClient" id="idClient2"> -->
-
-	<%-- 			<c:forEach var="client" items="${listeClient}"> --%>
-
-	<%-- 				<option value="${client.idPersonne}"><c:out --%>
-	<%-- 						value="${client.idPersonne}" /></option> --%>
-
-	<%-- 			</c:forEach> --%>
-
-	<!-- 		</select> -->
-
-	<!-- 		<button type="submit" class="btn btn-success">Consulter -->
-	<!-- 			Compte</button> -->
-
-	<!-- 	</form> -->
-
-
-
-	<!-- 	<br> -->
-
-	<%-- 	<form action="${chemin}virement" method="get" --%>
-	<!-- 		class="form-inline form-group container"> -->
-
-	<!-- 		<button type="submit" class="btn btn-success">Effectuer -->
-	<!-- 			Virement</button> -->
-
-	<!-- 	</form> -->
-
-
-
-	</div>
 
 
 	<!-- Section 1  -->

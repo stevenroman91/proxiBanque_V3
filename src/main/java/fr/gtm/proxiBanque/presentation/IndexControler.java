@@ -50,6 +50,38 @@ public class IndexControler {
 	
 	@GetMapping("/comptes")
 	public ModelAndView vuecomptes(@RequestParam("id") Integer id) {
+		
+		LOGGER.info("---------------------JE SUIS PASSE DANS COMPTES\n");
+		ModelAndView mav = new ModelAndView("comptes");
+		mav.addObject("client",clientService.read(id));
+		return mav;
+	}
+	
+	@GetMapping("/virement")
+	public ModelAndView vuevirement(@RequestParam("id") Integer id) {
+//		ModelAndView mav = new ModelAndView("redirect:/comptes.html?id="+clientService.read(id).getId());
+//		mav.addObject("client",clientService.read(id));
+//		mav.addObject("tydeAction",1);
+		ModelAndView mav = new ModelAndView("comptes");
+		mav.addObject("client",clientService.read(id));
+		mav.addObject("tydeAction",1);
+		return mav;
+	}
+	
+	@GetMapping("/retrait")
+	public ModelAndView vueretrait(@RequestParam("id") Integer id) {
+//		ModelAndView mav = new ModelAndView("redirect:/comptes.html?id="+clientService.read(id).getId());
+//		mav.addObject("client",clientService.read(id));
+//		mav.addObject("tydeAction",-1);
+		ModelAndView mav = new ModelAndView("comptes");
+		mav.addObject("client",clientService.read(id));
+		mav.addObject("tydeAction",-1);
+		return mav;
+	}
+	
+	
+	@PostMapping({"/comptes"})
+	public ModelAndView comptes(@RequestParam("id") Integer id) {
 		ModelAndView mav = new ModelAndView("comptes");
 		mav.addObject("client",clientService.read(id));
 		return mav;
