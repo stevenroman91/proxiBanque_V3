@@ -23,5 +23,3 @@
         
    III) Documentation : 
       - La documentation est disponible dans doc/index.html
-
-    IV) 
